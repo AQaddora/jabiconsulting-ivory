@@ -214,12 +214,13 @@
     }
     .hero-visual img {
       width: 100%; height: 100%; object-fit: cover;
-      transform: scale(1.05);
-      animation: kenburns 18s ease-in-out infinite alternate;
+      object-position: 72% center;
+      transform: scale(1.04);
+      animation: kenburns 20s ease-in-out infinite alternate;
     }
     @keyframes kenburns {
-      0% { transform: scale(1.05) translate(0,0); }
-      100% { transform: scale(1.18) translate(-2%, -3%); }
+      0% { transform: scale(1.04); }
+      100% { transform: scale(1.12); }
     }
     .hero-visual::after {
       content: ""; position: absolute; inset: 0;
@@ -383,12 +384,12 @@
 
     .map-stage {
       position: relative;
-      aspect-ratio: 1.2/1;
+      aspect-ratio: 1.5/1;
       background: radial-gradient(circle at 50% 50%, rgba(201,100,66,.08), transparent 70%);
       border: 1px solid var(--line);
       border-radius: var(--radius);
       overflow: hidden;
-      padding: 30px;
+      padding: 24px;
     }
     .map-stage svg { width: 100%; height: 100%; }
     .pin {
@@ -554,6 +555,16 @@
     }
     .socials a:hover { background: var(--accent); border-color: var(--accent); color: #fff; transform: translateY(-3px); }
     .socials svg { width: 16px; height: 16px; }
+
+    .dev-credit {
+      margin-top: 18px;
+      display: flex; align-items: center; gap: 10px;
+      font-size: 11px; color: var(--muted);
+      letter-spacing: .12em; text-transform: uppercase;
+    }
+    .dev-credit a { display: inline-flex; align-items: center; gap: 8px; transition: opacity .2s; }
+    .dev-credit a:hover { opacity: .75; }
+    .dev-credit img { height: 22px; width: auto; }
 
     /* ---------- Reveal animation ---------- */
     .reveal {
@@ -744,42 +755,52 @@
           </div>
         </div>
         <div class="map-stage reveal" data-delay="2">
-          <svg viewBox="0 0 500 420" xmlns="http://www.w3.org/2000/svg">
+          <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
             <defs>
               <linearGradient id="land" x1="0" x2="1" y1="0" y2="1">
-                <stop offset="0%" stop-color="#E9E2D4" stop-opacity=".9"/>
-                <stop offset="100%" stop-color="#D7CDB8" stop-opacity=".7"/>
+                <stop offset="0%" stop-color="#E9E2D4" stop-opacity=".95"/>
+                <stop offset="100%" stop-color="#D7CDB8" stop-opacity=".75"/>
               </linearGradient>
-              <pattern id="dots" x="0" y="0" width="14" height="14" patternUnits="userSpaceOnUse">
+              <pattern id="dots" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
                 <circle cx="2" cy="2" r="1" fill="rgba(201,100,66,.18)"/>
               </pattern>
             </defs>
-            <rect width="500" height="420" fill="url(#dots)" opacity=".5"/>
-            <path d="M70 80 L210 60 L290 75 L350 95 L420 130 L450 200 L430 260 L380 300 L320 320 L280 360 L220 380 L160 360 L120 320 L100 270 L80 220 L60 170 Z"
-                  fill="url(#land)" stroke="rgba(201,100,66,.4)" stroke-width="1.5"/>
-            <g class="pin"><circle cx="320" cy="180" r="5"/></g>
-            <g class="pin"><circle cx="360" cy="170" r="5"/></g>
-            <g class="pin"><circle cx="345" cy="165" r="5"/></g>
-            <g class="pin"><circle cx="280" cy="135" r="5"/></g>
-            <g class="pin"><circle cx="270" cy="125" r="5"/></g>
-            <g class="pin"><circle cx="265" cy="115" r="5"/></g>
-            <g class="pin"><circle cx="285" cy="110" r="5"/></g>
-            <g class="pin"><circle cx="310" cy="125" r="5"/></g>
-            <g class="pin"><circle cx="230" cy="155" r="5"/></g>
-            <g class="pin"><circle cx="190" cy="170" r="5"/></g>
-            <g class="pin"><circle cx="155" cy="155" r="5"/></g>
-            <g class="pin"><circle cx="110" cy="135" r="5"/></g>
-            <g class="pin"><circle cx="370" cy="240" r="5"/></g>
-            <g class="pin"><circle cx="395" cy="200" r="5"/></g>
-            <g class="pin"><circle cx="240" cy="265" r="5"/></g>
-            <g class="pin"><circle cx="345" cy="180" r="5"/></g>
-            <g stroke="rgba(201,100,66,.3)" stroke-width="1" fill="none" stroke-dasharray="3 4">
-              <path d="M30 30 Q 180 90 320 180"/>
-              <path d="M30 30 Q 150 100 280 135"/>
-              <path d="M30 30 Q 200 70 230 155"/>
+            <rect width="600" height="400" fill="url(#dots)" opacity=".55"/>
+
+            <!-- North Africa (Morocco → Egypt + Sudan) -->
+            <path d="M20,172 L71,89 L71,55 L102,48 L147,41 L196,34 L235,96 L288,103 L350,117 L380,117 L380,159 L388,241 L404,311 L411,380 L288,380 L104,283 Z"
+                  fill="url(#land)" stroke="rgba(201,100,66,.42)" stroke-width="1.4" stroke-linejoin="round"/>
+
+            <!-- Arabian Peninsula + Levant + Iraq -->
+            <path d="M392,82 L396,48 L403,34 L442,34 L465,48 L487,117 L503,131 L487,158 L503,172 L511,186 L541,200 L579,228 L564,311 L519,352 L454,373 L450,324 L420,241 L404,159 L388,138 L388,117 L388,89 Z"
+                  fill="url(#land)" stroke="rgba(201,100,66,.42)" stroke-width="1.4" stroke-linejoin="round"/>
+
+            <!-- Country pins (lat/lon projected) -->
+            <g class="pin"><circle cx="68"  cy="75"  r="5"/></g><!-- Morocco -->
+            <g class="pin"><circle cx="198" cy="55"  r="5"/></g><!-- Tunisia -->
+            <g class="pin"><circle cx="221" cy="100" r="5"/></g><!-- Libya -->
+            <g class="pin"><circle cx="359" cy="138" r="5"/></g><!-- Egypt -->
+            <g class="pin"><circle cx="369" cy="330" r="5"/></g><!-- Sudan -->
+            <g class="pin"><circle cx="395" cy="82"  r="5"/></g><!-- Lebanon -->
+            <g class="pin"><circle cx="408" cy="75"  r="5"/></g><!-- Syria -->
+            <g class="pin"><circle cx="397" cy="108" r="5"/></g><!-- Jordan -->
+            <g class="pin"><circle cx="388" cy="112" r="5"/></g><!-- Palestine -->
+            <g class="pin"><circle cx="460" cy="85"  r="5"/></g><!-- Iraq -->
+            <g class="pin"><circle cx="478" cy="204" r="5"/></g><!-- Saudi Arabia -->
+            <g class="pin"><circle cx="510" cy="184" r="5"/></g><!-- Bahrain -->
+            <g class="pin"><circle cx="517" cy="196" r="5"/></g><!-- Qatar -->
+            <g class="pin"><circle cx="540" cy="208" r="5"/></g><!-- UAE -->
+            <g class="pin"><circle cx="568" cy="219" r="5"/></g><!-- Oman -->
+            <g class="pin"><circle cx="459" cy="333" r="5"/></g><!-- Yemen -->
+
+            <!-- Dashed connectors from Reston, VA to MENA hubs -->
+            <g stroke="rgba(201,100,66,.32)" stroke-width="1" fill="none" stroke-dasharray="3 4">
+              <path d="M30,28 Q 260,40 478,204"/>
+              <path d="M30,28 Q 220,80 359,138"/>
+              <path d="M30,28 Q 240,60 395,82"/>
             </g>
-            <circle cx="30" cy="30" r="4" fill="#C96442"/>
-            <text x="42" y="34" font-family="JetBrains Mono, monospace" font-size="9" fill="#C96442" letter-spacing="1">RESTON, VA</text>
+            <circle cx="30" cy="28" r="4" fill="#C96442"/>
+            <text x="42" y="32" font-family="JetBrains Mono, monospace" font-size="9" fill="#C96442" letter-spacing="1.2">RESTON, VA</text>
           </svg>
         </div>
       </div>
@@ -913,7 +934,15 @@
         </div>
       </div>
       <div class="copyright">
-        <div>© 2026 Jabi Consulting LLC. All rights reserved.</div>
+        <div>
+          © 2026 Jabi Consulting LLC. All rights reserved.
+          <div class="dev-credit">
+            Developed by
+            <a href="https://taqat.work" target="_blank" rel="noopener noreferrer">
+              <img src="assets/taqat-logo.png" alt="TAQAT" />
+            </a>
+          </div>
+        </div>
         <div class="socials">
           <a href="#" aria-label="LinkedIn"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2zM8.34 18.34H5.67V9.67h2.67v8.67zM7 8.34a1.55 1.55 0 110-3.1 1.55 1.55 0 010 3.1zm11.34 10H15.67v-4.22c0-1-.02-2.3-1.4-2.3s-1.62 1.1-1.62 2.23v4.29h-2.67V9.67h2.56v1.18h.04a2.8 2.8 0 012.53-1.39c2.71 0 3.21 1.78 3.21 4.1v4.88z"/></svg></a>
           <a href="#" aria-label="X / Twitter"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg></a>
