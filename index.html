@@ -384,7 +384,31 @@
     .mapboxgl-ctrl-group { background: var(--bg) !important; border: 1px solid var(--line-strong) !important; }
     .mapboxgl-ctrl-group button { background-color: var(--bg) !important; }
 
-    /* (Native Mapbox circle + symbol layers handle the markers — no HTML markers needed.) */
+    /* HTML marker — circle bubble centered on the lat/lon (anchor='center', no offset) */
+    .mena-marker {
+      width: 36px; height: 36px;
+      background: var(--bg);
+      border: 2px solid var(--accent);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 19px; line-height: 1;
+      box-shadow: 0 6px 14px -4px rgba(26,26,26,.35);
+      cursor: pointer;
+      transition: transform .2s, box-shadow .2s;
+      will-change: transform;
+    }
+    .mena-marker:hover {
+      transform: scale(1.18);
+      box-shadow: 0 10px 22px -4px rgba(201,100,66,.55);
+      z-index: 10;
+    }
+    .mena-marker.hub {
+      width: 44px; height: 44px;
+      font-size: 24px;
+      background: var(--accent);
+      border-color: #1A1A1A;
+      border-width: 2.5px;
+    }
 
     /* Reston, VA "from" badge floating over the map */
     .map-from-badge {
@@ -1062,53 +1086,25 @@
             features: countries.map(c => ({
               type: 'Feature',
               geometry: { type: 'Point', coordinates: [c.lng, c.lat] },
-              properties: { name: c.name, flag: c.flag, hub: !!c.hub }
+              properties: { name: c.name, hub: !!c.hub }
             }))
           }
         });
 
-        // Soft accent halo behind each pin
+        // Soft accent halo behind each pin (precise — circle is anchored at the feature's lat/lon)
         map.addLayer({
           id: 'jabi-halo',
           type: 'circle',
           source: 'jabi-countries',
           paint: {
-            'circle-radius': ['case', ['get', 'hub'], 24, 18],
+            'circle-radius': ['case', ['get', 'hub'], 30, 24],
             'circle-color': '#C96442',
-            'circle-opacity': 0.18,
-            'circle-blur': 0.5
+            'circle-opacity': 0.14,
+            'circle-blur': 0.6
           }
         });
 
-        // The actual pin — circle centered EXACTLY at the country's lat/lon
-        map.addLayer({
-          id: 'jabi-pin',
-          type: 'circle',
-          source: 'jabi-countries',
-          paint: {
-            'circle-radius': ['case', ['get', 'hub'], 14, 10],
-            'circle-color': ['case', ['get', 'hub'], '#C96442', '#F5F1EA'],
-            'circle-stroke-color': '#C96442',
-            'circle-stroke-width': 2.5
-          }
-        });
-
-        // Flag emoji rendered as a text symbol on top of the pin (centered, same lat/lon)
-        map.addLayer({
-          id: 'jabi-flag',
-          type: 'symbol',
-          source: 'jabi-countries',
-          layout: {
-            'text-field': ['get', 'flag'],
-            'text-size': ['case', ['get', 'hub'], 22, 16],
-            'text-allow-overlap': true,
-            'text-ignore-placement': true,
-            'text-anchor': 'center',
-            'text-offset': [0, 0]
-          }
-        });
-
-        // Country name label below the pin (small caps, fades in at zoom ≥ 3.5)
+        // Country name label below the pin (renders well — uses Mapbox text fonts, not emoji)
         map.addLayer({
           id: 'jabi-label',
           type: 'symbol',
@@ -1118,7 +1114,7 @@
             'text-field': ['get', 'name'],
             'text-size': 11,
             'text-anchor': 'top',
-            'text-offset': [0, 1.4],
+            'text-offset': [0, 1.9],
             'text-allow-overlap': false,
             'text-letter-spacing': 0.08,
             'text-transform': 'uppercase',
@@ -1132,23 +1128,20 @@
           }
         });
 
-        // Click any pin → popup
-        const showPopup = (e) => {
-          const f = e.features[0];
-          new mapboxgl.Popup({ offset: 16, closeButton: false })
-            .setLngLat(f.geometry.coordinates)
-            .setHTML(`<b>${f.properties.flag} ${f.properties.name}</b>`)
+        // HTML markers for the FLAG EMOJIS — anchor='center', zero offset
+        // → the circle's geometric center sits EXACTLY at the country's lat/lon.
+        // (Native Mapbox symbol layers can't render emoji glyphs reliably; HTML can.)
+        countries.forEach(c => {
+          const el = document.createElement('div');
+          el.className = 'mena-marker' + (c.hub ? ' hub' : '');
+          el.textContent = c.flag;
+          el.title = c.name;
+          el.setAttribute('aria-label', c.name);
+          new mapboxgl.Marker({ element: el, anchor: 'center', offset: [0, 0] })
+            .setLngLat([c.lng, c.lat])
+            .setPopup(new mapboxgl.Popup({ offset: 22, closeButton: false }).setHTML(`<b>${c.flag} ${c.name}</b>`))
             .addTo(map);
-        };
-        map.on('click', 'jabi-pin', showPopup);
-        map.on('click', 'jabi-flag', showPopup);
-
-        // Cursor feedback
-        const hover = (on) => () => map.getCanvas().style.cursor = on ? 'pointer' : '';
-        map.on('mouseenter', 'jabi-pin',  hover(true));
-        map.on('mouseleave', 'jabi-pin',  hover(false));
-        map.on('mouseenter', 'jabi-flag', hover(true));
-        map.on('mouseleave', 'jabi-flag', hover(false));
+        });
 
         map.addControl(new mapboxgl.NavigationControl({ showCompass: false }), 'top-right');
       });
