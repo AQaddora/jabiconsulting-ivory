@@ -216,15 +216,15 @@
 
     .hero-visual {
       position: relative;
-      aspect-ratio: 4/5;
+      aspect-ratio: 4/4;          /* landscape-ish square, no portrait crop */
       overflow: visible;
       /* feather edges into the ivory background — no boxed rectangle */
-      -webkit-mask-image: radial-gradient(ellipse 75% 80% at 58% 50%, #000 45%, rgba(0,0,0,.85) 65%, transparent 96%);
-              mask-image: radial-gradient(ellipse 75% 80% at 58% 50%, #000 45%, rgba(0,0,0,.85) 65%, transparent 96%);
+      -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, #000 50%, rgba(0,0,0,.85) 70%, transparent 96%);
+              mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, #000 50%, rgba(0,0,0,.85) 70%, transparent 96%);
     }
     .hero-visual img {
       width: 100%; height: 100%; object-fit: cover;
-      object-position: 72% center;
+      object-position: center;
     }
     .hero-visual::after {
       content: ""; position: absolute; inset: 0;
@@ -296,12 +296,15 @@
       width: max-content;
     }
     .marquee img {
-      height: 44px; width: auto;
-      filter: brightness(0);
-      opacity: .55;
-      transition: opacity .3s;
+      height: 52px; width: auto;
+      max-width: 200px;
+      object-fit: contain;
+      mix-blend-mode: multiply;     /* drops JPG white backgrounds against ivory */
+      filter: grayscale(.35) contrast(1.05);
+      opacity: .85;
+      transition: opacity .25s, filter .25s;
     }
-    .marquee img:hover { opacity: 1; }
+    .marquee img:hover { opacity: 1; filter: grayscale(0); }
     @keyframes scroll {
       from { transform: translateX(0); }
       to { transform: translateX(-50%); }
@@ -381,26 +384,41 @@
     .mapboxgl-ctrl-group { background: var(--bg) !important; border: 1px solid var(--line-strong) !important; }
     .mapboxgl-ctrl-group button { background-color: var(--bg) !important; }
 
+    /* Circle bubble with a downward pointer triangle — pointer tip sits at lat/lon */
     .mena-marker {
-      display: grid; place-items: center;
-      width: 38px; height: 38px;
-      border-radius: 50%;
+      position: relative;
+      width: 36px; height: 36px;
       background: var(--bg);
       border: 2px solid var(--accent);
-      box-shadow: 0 4px 12px -2px rgba(26,26,26,.25);
-      font-size: 22px; line-height: 1;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 19px; line-height: 1;
+      box-shadow: 0 6px 14px -4px rgba(26,26,26,.35);
       cursor: pointer;
       transition: transform .2s, box-shadow .2s;
     }
+    .mena-marker::after {
+      content: '';
+      position: absolute;
+      bottom: -9px; left: 50%;
+      transform: translateX(-50%);
+      width: 0; height: 0;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-top: 9px solid var(--accent);
+    }
     .mena-marker:hover {
       transform: scale(1.18);
-      box-shadow: 0 8px 18px -2px rgba(201,100,66,.4);
+      box-shadow: 0 10px 20px -4px rgba(201,100,66,.55);
       z-index: 10;
     }
     .mena-marker.hub {
-      width: 44px; height: 44px; font-size: 26px;
-      border-color: var(--ink);
+      width: 42px; height: 42px;
+      font-size: 22px;
+      background: var(--accent);
+      border-color: #1a1a1a;
     }
+    .mena-marker.hub::after { border-top-color: #1a1a1a; }
 
     /* Reston, VA "from" badge floating over the map */
     .map-from-badge {
@@ -471,29 +489,75 @@
       gap: 60px; align-items: center;
     }
     @media (max-width: 880px) { .why-grid { grid-template-columns: 1fr; } }
-    .why-img {
+    /* ---------- Testimonial / growth carousel ---------- */
+    .testimonial-carousel {
+      position: relative;
       border-radius: 22px;
       overflow: hidden;
       box-shadow: var(--shadow);
       border: 1px solid var(--line-strong);
-      position: relative;
+      background: var(--bg-2);
     }
-    .why-img img {
-      width: 100%; aspect-ratio: 5/4; object-fit: cover;
+    .testimonial-slide {
+      position: absolute; inset: 0;
+      opacity: 0;
+      transition: opacity .7s ease;
+      pointer-events: none;
     }
-    .why-img::after {
+    .testimonial-slide.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .testimonial-carousel .anchor-ratio {
+      width: 100%; aspect-ratio: 5/4; display: block;
+    }
+    .testimonial-slide img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .testimonial-slide::after {
       content: ""; position: absolute; inset: 0;
-      background: linear-gradient(180deg, transparent 50%, rgba(26,26,26,.5) 100%);
+      background: linear-gradient(180deg, transparent 45%, rgba(26,26,26,.62) 100%);
     }
-    .why-card {
+    .testimonial-badge {
       position: absolute; left: 22px; bottom: 22px;
       background: rgba(245,241,234,.95);
       border: 1px solid var(--line-strong);
-      padding: 16px 20px; border-radius: 12px;
+      padding: 14px 20px; border-radius: 12px;
       backdrop-filter: blur(10px);
+      z-index: 2;
     }
-    .why-card .n { font-size: 26px; font-weight: 800; color: var(--accent); }
-    .why-card .l { font-size: 11px; letter-spacing: .15em; text-transform: uppercase; color: var(--ink-dim); }
+    .testimonial-badge .y {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 10px; letter-spacing: .2em;
+      color: var(--accent); font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .testimonial-badge .n { font-size: 28px; font-weight: 800; color: var(--ink); line-height: 1; letter-spacing: -.02em; }
+    .testimonial-badge .l { font-size: 11px; letter-spacing: .15em; text-transform: uppercase; color: var(--ink-dim); margin-top: 6px; }
+
+    .carousel-tabs {
+      position: absolute; top: 22px; right: 22px;
+      display: flex; gap: 6px;
+      background: rgba(245,241,234,.92);
+      border: 1px solid var(--line-strong);
+      padding: 4px; border-radius: 999px;
+      backdrop-filter: blur(10px);
+      z-index: 3;
+    }
+    .carousel-tabs button {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px; letter-spacing: .12em;
+      padding: 7px 14px;
+      background: transparent;
+      border: 0; border-radius: 999px;
+      color: var(--ink-dim);
+      cursor: pointer;
+      transition: background .25s, color .25s;
+    }
+    .carousel-tabs button.active {
+      background: var(--accent);
+      color: #fff;
+    }
 
     .checks { display: grid; gap: 18px; margin-top: 28px; }
     .check {
@@ -664,9 +728,9 @@
         </div>
       </div>
       <div class="hero-visual">
-        <img src="assets/hero.jpg" alt="Strategic advisory across the Middle East" />
+        <img src="assets/hero-farmer.jpg" alt="MENA professional using digital tools — sustainable growth in agriculture &amp; industry" />
         <div class="hero-tag">
-          <div class="badge mono"><b>● </b>Live engagements · MENA</div>
+          <div class="badge mono"><b>● </b>Live Engagements · MENA</div>
         </div>
       </div>
     </div>
@@ -768,11 +832,27 @@
   <section id="why">
     <div class="container">
       <div class="why-grid">
-        <div class="why-img reveal">
-          <img src="assets/team.jpg" alt="Capacity strengthening" />
-          <div class="why-card">
-            <div class="n">$120M+</div>
-            <div class="l">Client portfolio growth · 2024</div>
+        <div class="testimonial-carousel reveal" id="growth-carousel">
+          <div class="anchor-ratio"></div>
+          <div class="carousel-tabs" role="tablist">
+            <button type="button" class="active" data-slide="0" role="tab" aria-selected="true">2024</button>
+            <button type="button" data-slide="1" role="tab" aria-selected="false">2025</button>
+          </div>
+          <div class="testimonial-slide active" data-year="2024">
+            <img src="assets/testimonial-2024.jpg" alt="Youth &amp; education programs across MENA — 2024" />
+            <div class="testimonial-badge">
+              <div class="y">2024 · Portfolio Growth</div>
+              <div class="n">$120M+</div>
+              <div class="l">Programs, capture wins &amp; market expansion</div>
+            </div>
+          </div>
+          <div class="testimonial-slide" data-year="2025">
+            <img src="assets/testimonial-2025.jpg" alt="GCC market entry &amp; digital transformation — 2025" />
+            <div class="testimonial-badge">
+              <div class="y">2025 · Portfolio Growth</div>
+              <div class="n">$65M+</div>
+              <div class="l">GCC expansion &amp; AI-led delivery</div>
+            </div>
           </div>
         </div>
         <div class="reveal" data-delay="2">
@@ -947,6 +1027,29 @@
     }, { threshold: 0.4 });
     document.querySelectorAll('.hero-stats').forEach(el => statObs.observe(el));
 
+    // ============== Growth carousel (2024 / 2025) ==============
+    (function () {
+      const root = document.getElementById('growth-carousel');
+      if (!root) return;
+      const slides = root.querySelectorAll('.testimonial-slide');
+      const tabs   = root.querySelectorAll('.carousel-tabs button');
+      let current = 0;
+      let timer = null;
+      const go = (i) => {
+        current = (i + slides.length) % slides.length;
+        slides.forEach((s, idx) => s.classList.toggle('active', idx === current));
+        tabs.forEach((t, idx) => {
+          t.classList.toggle('active', idx === current);
+          t.setAttribute('aria-selected', idx === current ? 'true' : 'false');
+        });
+      };
+      const restart = () => { clearInterval(timer); timer = setInterval(() => go(current + 1), 7000); };
+      tabs.forEach((t, idx) => t.addEventListener('click', () => { go(idx); restart(); }));
+      root.addEventListener('mouseenter', () => clearInterval(timer));
+      root.addEventListener('mouseleave', restart);
+      restart();
+    })();
+
     // ============== Mapbox MENA map ==============
     const initMap = () => {
       if (typeof mapboxgl === 'undefined' || !document.getElementById('mena-map')) return;
@@ -993,9 +1096,10 @@
           el.className = 'mena-marker' + (c.hub ? ' hub' : '');
           el.textContent = c.flag;
           el.title = c.name;
-          new mapboxgl.Marker({ element: el, anchor: 'center' })
+          // anchor='bottom' + 9px upward offset = the triangle's tip sits exactly at (lng,lat)
+          new mapboxgl.Marker({ element: el, anchor: 'bottom', offset: [0, 9] })
             .setLngLat([c.lng, c.lat])
-            .setPopup(new mapboxgl.Popup({ offset: 18, closeButton: false }).setHTML(`<b>${c.flag} ${c.name}</b>`))
+            .setPopup(new mapboxgl.Popup({ offset: 24, closeButton: false }).setHTML(`<b>${c.flag} ${c.name}</b>`))
             .addTo(map);
         });
 
