@@ -96,19 +96,14 @@
       display: flex; align-items: center; justify-content: space-between;
       padding: 18px 0;
     }
-    .brand { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; line-height: 1; }
-    .brand img { height: 36px; width: auto; display: block; }
-    .brand-tag {
-      font-family: "JetBrains Mono", monospace;
-      font-size: 9px; letter-spacing: .32em; font-weight: 600;
-      color: var(--ink-dim);
-      text-transform: uppercase;
-      margin-left: 4px;
+    .brand { display: flex; align-items: center; padding: 0; margin: 0; line-height: 0; }
+    .brand img {
+      height: 54px; width: auto; display: block;
+      background: transparent;
+      max-width: 100%;
     }
-    .brand-text { display: none; }
-    .brand-text { display: flex; flex-direction: column; line-height: 1.05; }
-    .brand-text b { font-weight: 700; font-size: 16px; letter-spacing: .02em; }
-    .brand-text span { font-size: 11px; color: var(--ink-dim); letter-spacing: .14em; text-transform: uppercase; }
+    .brand-tag, .brand-text { display: none; }   /* logo already includes wordmark; no need for separate text */
+    @media (max-width: 720px) { .brand img { height: 44px; } }
     .nav-links { display: flex; gap: 30px; align-items: center; }
     .nav-links a { font-size: 14px; color: var(--ink-dim); transition: color .2s; }
     .nav-links a:hover { color: var(--accent); }
@@ -790,7 +785,7 @@
     }
     @media (max-width: 880px) { .foot-grid { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 520px) { .foot-grid { grid-template-columns: 1fr; } }
-    .foot-brand img { height: 44px; margin-bottom: 18px; }
+    .foot-brand img { height: 56px; width: auto; display: block; margin: 0 0 18px; background: transparent; }
     .foot-brand p { color: var(--ink-dim); font-size: 14px; max-width: 320px; }
     .foot-col h4 {
       font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
@@ -868,9 +863,8 @@
 
   <header class="nav">
     <div class="container nav-row">
-      <a href="#" class="brand" aria-label="Jabi Consulting — MENA Advisory">
+      <a href="#" class="brand" aria-label="Jabi Consulting">
         <img src="assets/logo-color.svg" alt="Jabi Consulting" />
-        <span class="brand-tag">MENA Advisory</span>
       </a>
       <nav class="nav-links">
         <a href="#capabilities">What We Do</a>
