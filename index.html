@@ -96,14 +96,24 @@
       display: flex; align-items: center; justify-content: space-between;
       padding: 18px 0;
     }
-    .brand { display: flex; align-items: center; padding: 0; margin: 0; line-height: 0; }
+    .brand { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; padding: 0; margin: 0; line-height: 1; }
     .brand img {
-      height: 54px; width: auto; display: block;
+      height: 50px; width: auto; display: block;
       background: transparent;
       max-width: 100%;
     }
-    .brand-tag, .brand-text { display: none; }   /* logo already includes wordmark; no need for separate text */
-    @media (max-width: 720px) { .brand img { height: 44px; } }
+    .brand-tag {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 9px; letter-spacing: .32em; font-weight: 600;
+      color: var(--ink-dim);
+      text-transform: uppercase;
+      padding-left: 4px;
+    }
+    .brand-text { display: none; }
+    @media (max-width: 720px) {
+      .brand img { height: 40px; }
+      .brand-tag { font-size: 8px; letter-spacing: .28em; }
+    }
     .nav-links { display: flex; gap: 30px; align-items: center; }
     .nav-links a { font-size: 14px; color: var(--ink-dim); transition: color .2s; }
     .nav-links a:hover { color: var(--accent); }
@@ -115,7 +125,9 @@
       color: var(--ink-dim);
       transition: all .2s;
     }
+    .nav-linkedin svg { fill: currentColor; display: block; transition: fill .2s; }
     .nav-linkedin:hover { color: #fff; background: var(--accent); border-color: var(--accent); }
+    .nav-linkedin:hover svg { fill: #fff; }
     .btn {
       display: inline-flex; align-items: center; gap: 10px;
       padding: 12px 22px;
@@ -873,14 +885,15 @@
 
   <header class="nav">
     <div class="container nav-row">
-      <a href="#" class="brand" aria-label="Jabi Consulting">
-        <img src="assets/logo-color.svg?v=2" alt="Jabi Consulting" />
+      <a href="#" class="brand" aria-label="Jabi Consulting — MENA Advisory">
+        <img src="assets/logo-color.svg?v=3" alt="Jabi Consulting" />
+        <span class="brand-tag">MENA Advisory</span>
       </a>
       <nav class="nav-links">
         <a href="#capabilities">What We Do</a>
         <a href="#team">Team</a>
         <a href="#regions">Where We Work</a>
-        <a href="#articles">Insights</a>
+        <a href="insights.html">Insights</a>
         <a href="#why">Why Us</a>
         <a href="https://www.linkedin.com/company/jabcionsulting" target="_blank" rel="noopener" aria-label="LinkedIn" class="nav-linkedin">
           <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2zM8.34 18.34H5.67V9.67h2.67v8.67zM7 8.34a1.55 1.55 0 110-3.1 1.55 1.55 0 010 3.1zm11.34 10H15.67v-4.22c0-1-.02-2.3-1.4-2.3s-1.62 1.1-1.62 2.23v4.29h-2.67V9.67h2.56v1.18h.04a2.8 2.8 0 012.53-1.39c2.71 0 3.21 1.78 3.21 4.1v4.88z"/></svg>
@@ -1243,13 +1256,8 @@
         <!-- populated by JS from assets/articles.json -->
       </div>
 
-      <div class="insights-cta reveal" style="text-align:center; margin-top:48px;">
-        <button class="btn btn-ghost" id="insights-toggle">View All Insights ↓</button>
-      </div>
-
-      <div class="archive-wrap" id="insights-archive-wrap" hidden>
-        <h3 class="archive-title-band">All Insights</h3>
-        <div id="insights-archive"><!-- populated by JS --></div>
+      <div class="insights-cta" style="text-align:center; margin-top:48px;">
+        <a href="insights.html" class="btn btn-primary">View All Insights →</a>
       </div>
     </div>
   </section>
@@ -1383,10 +1391,9 @@
         const arts = await res.json();
         const fmtDate = (s) => s;
         // Build top-4 cards in the homepage carousel
-        // NOTE: no `.reveal` class — the IO was set up before fetch resolved,
-        // so dynamically-injected `.reveal` cards would stay at opacity:0 forever.
+        // Cards link to internal /insights/<slug>.html pages (no longer to jabiconsulting.com).
         wrap.innerHTML = arts.slice(0, 4).map(a => `
-          <a class="article" href="${a.url}" target="_blank" rel="noopener">
+          <a class="article" href="insights/${a.slug}.html">
             <div class="article-img"><img src="${a.local}" loading="lazy" alt="" /></div>
             <div class="article-body">
               <div class="article-cat">${a.category}</div>
@@ -1395,10 +1402,10 @@
               <div class="read-more">Read More <span>→</span></div>
             </div>
           </a>`).join('');
-        // Build the full archive
+        // Inline archive list (used by the "View All Insights" expand below)
         if (archive) {
           archive.innerHTML = arts.map(a => `
-            <a class="archive-row" href="${a.url}" target="_blank" rel="noopener">
+            <a class="archive-row" href="insights/${a.slug}.html">
               <div class="archive-date">${fmtDate(a.date)}</div>
               <div class="archive-title">${a.title}</div>
               <div class="archive-cat">${a.category}</div>
@@ -1406,17 +1413,6 @@
             </a>`).join('');
         }
       } catch (e) { console.warn('Insights fetch failed', e); }
-
-      // View-all toggle
-      const toggle = document.getElementById('insights-toggle');
-      const wrap2  = document.getElementById('insights-archive-wrap');
-      if (toggle && wrap2) {
-        toggle.addEventListener('click', () => {
-          const isHidden = wrap2.hasAttribute('hidden');
-          if (isHidden) { wrap2.removeAttribute('hidden'); toggle.textContent = 'Hide Archive ↑'; wrap2.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
-          else { wrap2.setAttribute('hidden', ''); toggle.textContent = 'View All Insights ↓'; }
-        });
-      }
     })();
 
     // ============== Growth carousel (2024 / 2025) ==============
