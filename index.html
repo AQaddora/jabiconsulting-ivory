@@ -96,9 +96,16 @@
       display: flex; align-items: center; justify-content: space-between;
       padding: 18px 0;
     }
-    .brand { display: flex; align-items: center; gap: 12px; }
-    .brand img { height: 40px; width: auto; }
-    .brand-text { display: none; }   /* SVG already contains the wordmark — drop the duplicate text */
+    .brand { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; line-height: 1; }
+    .brand img { height: 36px; width: auto; display: block; }
+    .brand-tag {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 9px; letter-spacing: .32em; font-weight: 600;
+      color: var(--ink-dim);
+      text-transform: uppercase;
+      margin-left: 4px;
+    }
+    .brand-text { display: none; }
     .brand-text { display: flex; flex-direction: column; line-height: 1.05; }
     .brand-text b { font-weight: 700; font-size: 16px; letter-spacing: .02em; }
     .brand-text span { font-size: 11px; color: var(--ink-dim); letter-spacing: .14em; text-transform: uppercase; }
@@ -278,6 +285,32 @@
       font-weight: 600;
     }
     @media (max-width: 720px) { .positioning { padding: 60px 0 40px; } }
+
+    .metrics-band {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+      margin-top: 70px;
+      padding-top: 50px;
+      border-top: 1px solid var(--line);
+    }
+    .metric { text-align: center; }
+    .metric-n {
+      font-size: clamp(28px, 3.4vw, 44px);
+      font-weight: 800;
+      color: var(--accent);
+      letter-spacing: -.02em;
+      line-height: 1;
+    }
+    .metric-l {
+      font-size: 11px; color: var(--ink-dim);
+      text-transform: uppercase; letter-spacing: .18em;
+      margin-top: 10px;
+      line-height: 1.4;
+    }
+    @media (max-width: 720px) {
+      .metrics-band { grid-template-columns: repeat(2, 1fr); gap: 22px 18px; margin-top: 44px; padding-top: 32px; }
+    }
     .section-head {
       text-align: center;
       max-width: 720px;
@@ -499,6 +532,66 @@
       transition: gap .25s, color .2s;
     }
     .article:hover .read-more { gap: 12px; color: var(--accent); }
+    .article-cat {
+      display: inline-block;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 10px; letter-spacing: .12em;
+      color: var(--ink); background: rgba(201,100,66,.12);
+      padding: 4px 10px; border-radius: 999px;
+      margin-bottom: 10px; text-transform: uppercase;
+    }
+
+    /* ---------- Insights archive (expandable) ---------- */
+    .archive-wrap {
+      margin-top: 56px;
+      border-top: 1px solid var(--line);
+      padding-top: 40px;
+    }
+    .archive-title-band {
+      font-size: 11px; letter-spacing: .25em; text-transform: uppercase;
+      color: var(--accent); font-weight: 600;
+      margin: 0 0 22px;
+    }
+    .archive-row {
+      display: grid;
+      grid-template-columns: 130px 1fr 200px 30px;
+      align-items: baseline;
+      gap: 24px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+      transition: padding-left .3s, color .2s;
+    }
+    .archive-row:hover {
+      padding-left: 14px;
+    }
+    .archive-row:hover .archive-title { color: var(--accent); }
+    .archive-row:hover .archive-arrow { transform: translateX(6px); color: var(--accent); }
+    .archive-date {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px; color: var(--ink-dim);
+      letter-spacing: .02em;
+    }
+    .archive-title {
+      font-size: 17px; font-weight: 600; line-height: 1.35; color: var(--ink);
+      transition: color .2s;
+    }
+    .archive-cat {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px; letter-spacing: .08em;
+      color: var(--accent); text-align: right;
+    }
+    .archive-arrow {
+      color: var(--ink-dim);
+      font-size: 18px;
+      transition: transform .3s, color .2s;
+    }
+    @media (max-width: 760px) {
+      .archive-row { grid-template-columns: 1fr auto; gap: 6px 18px; padding: 16px 0; }
+      .archive-date { grid-row: 1; grid-column: 1; font-size: 11px; }
+      .archive-cat  { grid-row: 1; grid-column: 2; font-size: 10px; }
+      .archive-title { grid-row: 2; grid-column: 1 / -1; font-size: 15px; }
+      .archive-arrow { display: none; }
+    }
 
     /* ---------- Why us ---------- */
     .why-grid {
@@ -596,6 +689,75 @@
     .check-ico svg { width: 18px; height: 18px; }
     .check b { font-size: 15px; display: block; margin-bottom: 4px; }
     .check span { font-size: 14px; color: var(--ink-dim); }
+
+    /* ---------- Team grid ---------- */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+      margin-top: 60px;
+    }
+    @media (max-width: 1080px) { .team-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 760px)  { .team-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; } }
+    .member {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: transform .3s, border-color .3s, background .3s;
+      cursor: pointer;
+    }
+    .member:hover { transform: translateY(-4px); border-color: var(--line-strong); background: var(--card-hi); }
+    .member-photo {
+      aspect-ratio: 1/1;
+      overflow: hidden;
+      background: var(--bg-3);
+    }
+    .member-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .member-body { padding: 18px 18px 22px; }
+    .member-name { font-size: 16px; font-weight: 700; letter-spacing: -.01em; margin: 0 0 4px; }
+    .member-role {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px; letter-spacing: .06em;
+      color: var(--accent);
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+    .member-bio {
+      font-size: 13px; color: var(--ink-dim);
+      line-height: 1.5;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .member.expanded .member-bio { -webkit-line-clamp: unset; }
+    .member-more {
+      font-size: 11px; color: var(--accent); font-weight: 600;
+      letter-spacing: .12em; text-transform: uppercase;
+      margin-top: 10px;
+      display: inline-block;
+    }
+
+    .team-categories {
+      display: flex; gap: 10px; flex-wrap: wrap;
+      margin-top: 28px;
+    }
+    .team-cat {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px; letter-spacing: .12em;
+      padding: 7px 14px;
+      border-radius: 999px;
+      background: rgba(26,26,26,.04);
+      border: 1px solid var(--line);
+      color: var(--ink-dim);
+      cursor: pointer;
+      transition: all .2s;
+      text-transform: uppercase;
+    }
+    .team-cat.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .team-cat:hover  { color: var(--accent); }
+    .team-cat.active:hover { color: #fff; }
 
     /* ---------- CTA ---------- */
     .cta-band {
@@ -706,15 +868,13 @@
 
   <header class="nav">
     <div class="container nav-row">
-      <a href="#" class="brand">
+      <a href="#" class="brand" aria-label="Jabi Consulting — MENA Advisory">
         <img src="assets/logo-color.svg" alt="Jabi Consulting" />
-        <div class="brand-text">
-          <b>Jabi Consulting</b>
-          <span>MENA Advisory</span>
-        </div>
+        <span class="brand-tag">MENA Advisory</span>
       </a>
       <nav class="nav-links">
         <a href="#capabilities">What We Do</a>
+        <a href="#team">Team</a>
         <a href="#regions">Where We Work</a>
         <a href="#articles">Insights</a>
         <a href="#why">Why Us</a>
@@ -748,7 +908,7 @@
         </div>
       </div>
       <div class="hero-visual">
-        <img src="assets/hero-farmer.jpg" alt="MENA professional using digital tools — sustainable growth in agriculture &amp; industry" />
+        <img src="assets/hero-office.jpg" alt="MENA youth in a robotics &amp; AI workshop — Jabi Consulting partner programs" />
         <div class="hero-tag">
           <div class="badge mono"><b>● </b>Live Engagements · MENA</div>
         </div>
@@ -756,13 +916,19 @@
     </div>
   </section>
 
-  <!-- ============== POSITIONING STATEMENT ============== -->
+  <!-- ============== POSITIONING STATEMENT + METRICS ============== -->
   <section class="positioning">
     <div class="container">
       <p class="positioning-statement reveal">
         Jabi Consulting <em>bridges</em> international development, private sector growth,
         and strategic advisory across <em>the Middle East and North Africa</em>.
       </p>
+      <div class="metrics-band reveal" data-delay="2">
+        <div class="metric"><div class="metric-n">16</div><div class="metric-l">MENA Markets</div></div>
+        <div class="metric"><div class="metric-n">$185M+</div><div class="metric-l">Portfolio Growth · 2024–25</div></div>
+        <div class="metric"><div class="metric-n">25+</div><div class="metric-l">Years Of MENA Practice</div></div>
+        <div class="metric"><div class="metric-n">13</div><div class="metric-l">Donor &amp; Prime Partners</div></div>
+      </div>
     </div>
   </section>
 
@@ -774,11 +940,11 @@
     <div class="marquee">
       <img src="assets/clients/usaid.png" alt="USAID" />
       <img src="assets/clients/state-dept.png" alt="U.S. Department of State" />
-      <img src="assets/clients/world-bank.webp" alt="The World Bank" />
+      <img src="assets/clients/world-bank.png" alt="The World Bank" />
       <img src="assets/clients/chemonics.png" alt="Chemonics International" />
       <img src="assets/clients/palladium.png" alt="Palladium" />
       <img src="assets/clients/panagora.png" alt="Panagora" />
-      <img src="assets/clients/ibi.webp" alt="IBI" />
+      <img src="assets/clients/ibi.png" alt="IBI" />
       <img src="assets/clients/world-learning.png" alt="World Learning" />
       <img src="assets/clients/helvetas.png" alt="Helvetas" />
       <img src="assets/clients/social-impact.png" alt="Social Impact" />
@@ -788,11 +954,11 @@
       <!-- duplicate for seamless loop -->
       <img src="assets/clients/usaid.png" alt="" />
       <img src="assets/clients/state-dept.png" alt="" />
-      <img src="assets/clients/world-bank.webp" alt="" />
+      <img src="assets/clients/world-bank.png" alt="" />
       <img src="assets/clients/chemonics.png" alt="" />
       <img src="assets/clients/palladium.png" alt="" />
       <img src="assets/clients/panagora.png" alt="" />
-      <img src="assets/clients/ibi.webp" alt="" />
+      <img src="assets/clients/ibi.png" alt="" />
       <img src="assets/clients/world-learning.png" alt="" />
       <img src="assets/clients/helvetas.png" alt="" />
       <img src="assets/clients/social-impact.png" alt="" />
@@ -920,6 +1086,147 @@
     </div>
   </section>
 
+  <!-- ============== TEAM ============== -->
+  <section id="team">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="kicker">Our Team &amp; Associates</div>
+        <h2>Multilingual MENA Operators. Deep Donor &amp; Private-Sector Networks.</h2>
+        <p class="sub">A core team in Washington and Nablus, supported by senior advisors spanning USAID, the World Bank, ILO, MIT, and four decades of MENA market practice.</p>
+      </div>
+
+      <div class="team-categories reveal">
+        <button class="team-cat active" data-cat="all">All</button>
+        <button class="team-cat" data-cat="core">Core Team</button>
+        <button class="team-cat" data-cat="senior">Senior Associates</button>
+        <button class="team-cat" data-cat="advisor">Regional Advisors</button>
+      </div>
+
+      <div class="team-grid reveal">
+        <!-- 1. Hisham Jabi — Founder & CEO -->
+        <article class="member" data-cat="core">
+          <div class="member-photo"><img src="assets/team/hisham-jabi.webp" alt="Hisham Jabi" /></div>
+          <div class="member-body">
+            <div class="member-name">Hisham Jabi</div>
+            <div class="member-role">Founder &amp; CEO</div>
+            <div class="member-bio">Entrepreneur, international development leader, and thought partner on the future of work for MENA youth — with a current focus on AI &amp; digital transformation at regional scale. Founder of MABCO, PITA, Juzoor and the Palestine Economic Forum. Senior advisor to the World Bank, ILO, UNOPS, and USAID. Holds an MBA and a master's in Information Technology.</div>
+            <span class="member-more">Read More →</span>
+          </div>
+        </article>
+
+        <!-- 2. Sophie Arbaugh — Operations & BD Manager -->
+        <article class="member" data-cat="core">
+          <div class="member-photo"><img src="assets/team/sophie-arbaugh.webp" alt="Sophie Arbaugh" /></div>
+          <div class="member-body">
+            <div class="member-name">Sophie Arbaugh</div>
+            <div class="member-role">Operations &amp; Business Development Manager</div>
+            <div class="member-bio">Joined Jabi Consulting in 2023 as a research consultant. Previously at the International Foundation for Electoral Systems (IFES), supporting USAID programming in Libya and Sudan. MSc in International Relations from the London School of Economics, concentrating in Middle Eastern politics, international law, and humanitarian intervention.</div>
+            <span class="member-more">Read More →</span>
+          </div>
+        </article>
+
+        <!-- 3. Emily Kenward — Project Associate -->
+        <article class="member" data-cat="core">
+          <div class="member-photo"><img src="assets/team/emily-kenward.webp" alt="Emily Kenward" /></div>
+          <div class="member-body">
+            <div class="member-name">Emily Kenward</div>
+            <div class="member-role">Project Associate</div>
+            <div class="member-bio">Passionate about the climate–conflict–gender nexus and women in peacebuilding. Contributed to water diplomacy efforts between Israel, the Palestinian Territories and Jordan. BS Environmental Biology + BA International Relations (Tulane). MA Conflict Resolution &amp; Mediation (Tel Aviv University). MA Environment, Development and Peace (UPEACE).</div>
+            <span class="member-more">Read More →</span>
+          </div>
+        </article>
+
+        <!-- 4. Emily Costello — Administrative & BD Assistant -->
+        <article class="member" data-cat="core">
+          <div class="member-photo"><img src="assets/team/emily-costello.png" alt="Emily Costello" /></div>
+          <div class="member-body">
+            <div class="member-name">Emily Costello</div>
+            <div class="member-role">Administrative &amp; Business Development Assistant</div>
+            <div class="member-bio">Master's student at the Elliott School of International Affairs (GWU). BA Global &amp; International Studies and Middle Eastern Studies (Bard). Worked with the Tahrir Institute, the Jordanian Embassy, the Arab Center Washington DC, the Middle East Policy Council, and Young Professionals in Foreign Policy.</div>
+            <span class="member-more">Read More →</span>
+          </div>
+        </article>
+
+        <!-- 5. Larry Cooley — Senior Technical Advisor -->
+        <article class="member" data-cat="senior">
+          <div class="member-photo"><img src="assets/team/larry-cooley.webp" alt="Larry Cooley" /></div>
+          <div class="member-body">
+            <div class="member-name">Larry Cooley</div>
+            <div class="member-role">Senior Technical Advisor</div>
+            <div class="member-bio">Founder and President Emeritus of Management Systems International. Four decades of strategic management, public sector reform, and international development experience — rooted in UNDP, World Bank, and Peace Corps. Has guided numerous global public management initiatives and advised heads of governments and international agencies.</div>
+            <span class="member-more">Read More →</span>
+          </div>
+        </article>
+
+        <!-- 6. Jerry M. Striplin — Senior Middle East Advisor -->
+        <article class="member" data-cat="senior">
+          <div class="member-photo"><img src="assets/team/jerry-striplin.jpg" alt="Jerry M. Striplin" /></div>
+          <div class="member-body">
+            <div class="member-name">Jerry M. Striplin</div>
+            <div class="member-role">Senior Middle East Advisor</div>
+            <div class="member-bio">35+ years of senior business leadership across 64 countries and 40 business sectors. Programs in Afghanistan, Central &amp; Eastern Europe, and the Middle East. Former VP at AT&amp;T and FISERV, Director at The Palladium Group Saudi Arabia, and senior roles at Coca-Cola, Telcordia, Bell Labs, and Digital Equipment Corporation.</div>
+            <span class="member-more">Read More →</span>
+          </div>
+        </article>
+
+        <!-- 7. Marina Fanning — Corporate Oversight Advisor -->
+        <article class="member" data-cat="senior">
+          <div class="member-photo"><img src="assets/team/marina-fanning.webp" alt="Marina Fanning" /></div>
+          <div class="member-body">
+            <div class="member-name">Marina Fanning</div>
+            <div class="member-role">Corporate Oversight Advisor</div>
+            <div class="member-bio">Has advised Jabi Consulting on strategy and economic development tools since its inception. Almost four decades as EVP for Management Systems International (MSI), which she helped establish. Directed MSI's Career Management for Women program. MS Organizational Development (American University). Fluent in Spanish, French, and Portuguese.</div>
+            <span class="member-more">Read More →</span>
+          </div>
+        </article>
+
+        <!-- 8. Larry Garber — Senior Advisor -->
+        <article class="member" data-cat="advisor">
+          <div class="member-photo"><img src="assets/team/larry-garber.png" alt="Larry Garber" /></div>
+          <div class="member-body">
+            <div class="member-name">Larry Garber</div>
+            <div class="member-role">Senior Advisor</div>
+            <div class="member-bio">International development expert. Senior USAID official for 15+ years, including 5 as Mission Director for USAID/West Bank–Gaza — one of the agency's most politically sensitive posts. Led USAID's Arab Spring strategic-planning response. Extensive experience in election monitoring &amp; democratization with the UN and OSCE. Queens College (political science) + Columbia (law &amp; international affairs).</div>
+            <span class="member-more">Read More →</span>
+          </div>
+        </article>
+
+        <!-- 9. Dr. Amna-Noor Al-Gallas-Streeter — Global Health -->
+        <article class="member" data-cat="advisor">
+          <div class="member-photo"><img src="assets/team/amna-noor.jpg" alt="Dr. Amna-Noor Al-Gallas-Streeter" /></div>
+          <div class="member-body">
+            <div class="member-name">Dr. Amna-Noor Al-Gallas-Streeter</div>
+            <div class="member-role">Global Health &amp; Development Senior Advisor</div>
+            <div class="member-bio">Medical doctor and global-health expert. 20+ years designing and leading global health programs in low-resource countries. Former senior technical advisor at USAID's Global Health Bureau (infectious diseases, health systems, MEL). Fluent in English, Arabic, and French. Worked across 20+ countries and with WHO and the Global Fund. MD Jordan University + MA International Relations (Fletcher School, Tufts).</div>
+            <span class="member-more">Read More →</span>
+          </div>
+        </article>
+
+        <!-- 10. Hisham Kassab, PhD — Technology Advisor -->
+        <article class="member" data-cat="advisor">
+          <div class="member-photo"><img src="assets/team/hisham-kassab.jpg" alt="Hisham Kassab, PhD" /></div>
+          <div class="member-body">
+            <div class="member-name">Hisham Kassab, PhD</div>
+            <div class="member-role">Technology Advisor</div>
+            <div class="member-bio">PhD in Electrical Engineering and Computer Science from MIT. Previously at Booz Allen Hamilton. Extensive IT experience; passionate about applying Artificial Intelligence to the world's toughest development problems.</div>
+            <span class="member-more">Read More →</span>
+          </div>
+        </article>
+
+        <!-- 11. Karla Yoder — Senior Workforce Expert -->
+        <article class="member" data-cat="senior">
+          <div class="member-photo"><img src="assets/team/karla-yoder.png" alt="Karla Yoder" /></div>
+          <div class="member-body">
+            <div class="member-name">Karla Yoder</div>
+            <div class="member-role">Senior Workforce Expert</div>
+            <div class="member-bio">20+ years designing and advising workforce and economic-development programs across the U.S., the Middle East, and Africa. Workforce strategy &amp; systems design for World Learning, Global Communities, and the D.C. Workforce Investment Council. Focus on translating evidence into practice for sustainable economic inclusion.</div>
+            <span class="member-more">Read More →</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <!-- ============== ARTICLES ============== -->
   <section id="articles" style="background: rgba(26,26,26,.03); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
     <div class="container">
@@ -928,39 +1235,17 @@
         <h2>What our team is watching.</h2>
         <p class="sub">Monthly briefings on the political economy, labor markets, and growth signals across MENA.</p>
       </div>
-      <div class="articles">
-        <article class="article reveal">
-          <div class="article-img"><img src="assets/articles/art1.jpeg" alt="" /></div>
-          <div class="article-body">
-            <div class="article-date">APR 30, 2026</div>
-            <h3>MENA Monthly Pulse — Volume 4 (2026)</h3>
-            <div class="read-more">Read more <span>→</span></div>
-          </div>
-        </article>
-        <article class="article reveal" data-delay="1">
-          <div class="article-img"><img src="assets/articles/art2.png" alt="" /></div>
-          <div class="article-body">
-            <div class="article-date">APR 12, 2026</div>
-            <h3>Is AI Solving the Youth Labor Market Mismatch in MENA?</h3>
-            <div class="read-more">Read more <span>→</span></div>
-          </div>
-        </article>
-        <article class="article reveal" data-delay="2">
-          <div class="article-img"><img src="assets/articles/art3.jpeg" alt="" /></div>
-          <div class="article-body">
-            <div class="article-date">MAR 30, 2026</div>
-            <h3>MENA Monthly Pulse — Volume 3 (2026)</h3>
-            <div class="read-more">Read more <span>→</span></div>
-          </div>
-        </article>
-        <article class="article reveal" data-delay="3">
-          <div class="article-img"><img src="assets/articles/art4.jpeg" alt="" /></div>
-          <div class="article-body">
-            <div class="article-date">FEB 28, 2026</div>
-            <h3>MENA Monthly Pulse — Volume 2 (2026)</h3>
-            <div class="read-more">Read more <span>→</span></div>
-          </div>
-        </article>
+      <div class="articles" id="insights-grid">
+        <!-- populated by JS from assets/articles.json -->
+      </div>
+
+      <div class="insights-cta reveal" style="text-align:center; margin-top:48px;">
+        <button class="btn btn-ghost" id="insights-toggle">View All Insights ↓</button>
+      </div>
+
+      <div class="archive-wrap" id="insights-archive-wrap" hidden>
+        <h3 class="archive-title-band">All Insights</h3>
+        <div id="insights-archive"><!-- populated by JS --></div>
       </div>
     </div>
   </section>
@@ -1069,6 +1354,69 @@
     }, { threshold: 0.4 });
     document.querySelectorAll('.hero-stats').forEach(el => statObs.observe(el));
 
+    // ============== Team category filter + bio expander ==============
+    (function () {
+      const cats = document.querySelectorAll('.team-cat');
+      const members = document.querySelectorAll('.member');
+      cats.forEach(btn => btn.addEventListener('click', () => {
+        const c = btn.dataset.cat;
+        cats.forEach(b => b.classList.toggle('active', b === btn));
+        members.forEach(m => {
+          const show = c === 'all' || m.dataset.cat === c;
+          m.style.display = show ? '' : 'none';
+        });
+      }));
+      members.forEach(m => m.addEventListener('click', () => {
+        m.classList.toggle('expanded');
+        const more = m.querySelector('.member-more');
+        if (more) more.textContent = m.classList.contains('expanded') ? '← Collapse' : 'Read More →';
+      }));
+    })();
+
+    // ============== Insights — dynamic carousel from articles.json ==============
+    (async function () {
+      const wrap = document.getElementById('insights-grid');
+      const archive = document.getElementById('insights-archive');
+      if (!wrap) return;
+      try {
+        const res = await fetch('assets/articles.json');
+        const arts = await res.json();
+        const fmtDate = (s) => s;
+        // Build top-4 cards in the homepage carousel
+        wrap.innerHTML = arts.slice(0, 4).map(a => `
+          <a class="article reveal" href="${a.url}" target="_blank" rel="noopener">
+            <div class="article-img"><img src="${a.local}" loading="lazy" alt="" /></div>
+            <div class="article-body">
+              <div class="article-cat">${a.category}</div>
+              <div class="article-date">${fmtDate(a.date).toUpperCase()}</div>
+              <h3>${a.title}</h3>
+              <div class="read-more">Read More <span>→</span></div>
+            </div>
+          </a>`).join('');
+        // Build the full archive
+        if (archive) {
+          archive.innerHTML = arts.map(a => `
+            <a class="archive-row" href="${a.url}" target="_blank" rel="noopener">
+              <div class="archive-date">${fmtDate(a.date)}</div>
+              <div class="archive-title">${a.title}</div>
+              <div class="archive-cat">${a.category}</div>
+              <div class="archive-arrow">→</div>
+            </a>`).join('');
+        }
+      } catch (e) { console.warn('Insights fetch failed', e); }
+
+      // View-all toggle
+      const toggle = document.getElementById('insights-toggle');
+      const wrap2  = document.getElementById('insights-archive-wrap');
+      if (toggle && wrap2) {
+        toggle.addEventListener('click', () => {
+          const isHidden = wrap2.hasAttribute('hidden');
+          if (isHidden) { wrap2.removeAttribute('hidden'); toggle.textContent = 'Hide Archive ↑'; wrap2.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+          else { wrap2.setAttribute('hidden', ''); toggle.textContent = 'View All Insights ↓'; }
+        });
+      }
+    })();
+
     // ============== Growth carousel (2024 / 2025) ==============
     (function () {
       const root = document.getElementById('growth-carousel');
@@ -1102,10 +1450,15 @@
       const map = new mapboxgl.Map({
         container: 'mena-map',
         style: 'mapbox://styles/mapbox/light-v11',
-        center: [35, 27],
-        zoom: 3.05,
+        center: [30, 27],
+        zoom: 3.4,
+        minZoom: 3.0,
+        maxZoom: 6,
+        maxBounds: [[-18, 8], [66, 44]],   // tight MENA window — no India/Pakistan/Sub-Saharan Africa
         attributionControl: { compact: true },
-        cooperativeGestures: true
+        cooperativeGestures: true,
+        dragRotate: false,
+        pitchWithRotate: false
       });
 
       const countries = [
@@ -1130,7 +1483,16 @@
       map.on('load', () => {
         try { map.setPaintProperty('land', 'background-color', '#EFEAE0'); } catch (e) {}
 
-        // GeoJSON source: each country as a Point feature at its capital lat/lon
+        // Hide irrelevant continental labels — only MENA names should remain visible
+        const lowPriorityLabelLayers = ['country-label', 'state-label', 'continent-label'];
+        // (We keep country labels, but lighten their color via paint property)
+        try {
+          map.setPaintProperty('country-label', 'text-color', '#5C5A55');
+          map.setPaintProperty('country-label', 'text-halo-color', '#F5F1EA');
+          map.setPaintProperty('country-label', 'text-halo-width', 1.5);
+        } catch (e) {}
+
+        // -------- Country pins (small, refined) --------
         map.addSource('jabi-countries', {
           type: 'geojson',
           data: {
@@ -1143,32 +1505,36 @@
           }
         });
 
-        // Soft accent halo behind each pin (precise — circle is anchored at the feature's lat/lon)
+        // Subtle halo
         map.addLayer({
-          id: 'jabi-halo',
-          type: 'circle',
-          source: 'jabi-countries',
+          id: 'jabi-halo', type: 'circle', source: 'jabi-countries',
           paint: {
-            'circle-radius': ['case', ['get', 'hub'], 30, 24],
+            'circle-radius': ['case', ['get', 'hub'], 12, 7],
             'circle-color': '#C96442',
-            'circle-opacity': 0.14,
-            'circle-blur': 0.6
+            'circle-opacity': 0.16, 'circle-blur': 0.8
           }
         });
-
-        // Country name label below the pin (renders well — uses Mapbox text fonts, not emoji)
+        // Crisp pin
         map.addLayer({
-          id: 'jabi-label',
-          type: 'symbol',
-          source: 'jabi-countries',
-          minzoom: 2.5,
+          id: 'jabi-pin', type: 'circle', source: 'jabi-countries',
+          paint: {
+            'circle-radius': ['case', ['get', 'hub'], 6, 4],
+            'circle-color': ['case', ['get', 'hub'], '#C96442', '#F5F1EA'],
+            'circle-stroke-color': '#C96442',
+            'circle-stroke-width': 2
+          }
+        });
+        // Country name label
+        map.addLayer({
+          id: 'jabi-label', type: 'symbol', source: 'jabi-countries',
+          minzoom: 3.0,
           layout: {
             'text-field': ['get', 'name'],
-            'text-size': 11,
+            'text-size': 10,
             'text-anchor': 'top',
-            'text-offset': [0, 1.9],
+            'text-offset': [0, 0.9],
             'text-allow-overlap': false,
-            'text-letter-spacing': 0.08,
+            'text-letter-spacing': 0.1,
             'text-transform': 'uppercase',
             'text-font': ['DIN Pro Medium', 'Arial Unicode MS Bold']
           },
@@ -1176,24 +1542,59 @@
             'text-color': '#1A1A1A',
             'text-halo-color': '#F5F1EA',
             'text-halo-width': 2,
-            'text-opacity': ['interpolate', ['linear'], ['zoom'], 2.5, 0, 3.6, 1]
+            'text-opacity': ['interpolate', ['linear'], ['zoom'], 3.0, 0, 3.8, 1]
           }
         });
 
-        // HTML markers for the FLAG EMOJIS — anchor='center', zero offset
-        // → the circle's geometric center sits EXACTLY at the country's lat/lon.
-        // (Native Mapbox symbol layers can't render emoji glyphs reliably; HTML can.)
-        countries.forEach(c => {
-          const el = document.createElement('div');
-          el.className = 'mena-marker' + (c.hub ? ' hub' : '');
-          el.textContent = c.flag;
-          el.title = c.name;
-          el.setAttribute('aria-label', c.name);
-          new mapboxgl.Marker({ element: el, anchor: 'center', offset: [0, 0] })
-            .setLngLat([c.lng, c.lat])
-            .setPopup(new mapboxgl.Popup({ offset: 22, closeButton: false }).setHTML(`<b>${c.flag} ${c.name}</b>`))
-            .addTo(map);
+        // -------- Thin coral connection arcs from Reston, VA → each country --------
+        // We approximate great-circle arcs as quadratic Bezier curves with a control
+        // point above the midpoint. Since Reston is outside maxBounds, the start of
+        // each arc enters from the top-left edge of the visible map.
+        const RESTON = [-77.359, 38.96];
+        const arcFeatures = countries.map(c => {
+          const a = RESTON, b = [c.lng, c.lat];
+          // 30-step quadratic Bezier, control point bowed northward
+          const mid = [(a[0] + b[0]) / 2, Math.max(a[1], b[1]) + 14];
+          const pts = [];
+          for (let t = 0; t <= 1.001; t += 1 / 30) {
+            const u = 1 - t;
+            pts.push([
+              u * u * a[0] + 2 * u * t * mid[0] + t * t * b[0],
+              u * u * a[1] + 2 * u * t * mid[1] + t * t * b[1]
+            ]);
+          }
+          return {
+            type: 'Feature',
+            geometry: { type: 'LineString', coordinates: pts },
+            properties: { hub: !!c.hub }
+          };
         });
+        map.addSource('jabi-arcs', { type: 'geojson', data: { type: 'FeatureCollection', features: arcFeatures } });
+        map.addLayer({
+          id: 'jabi-arcs',
+          type: 'line',
+          source: 'jabi-arcs',
+          layout: { 'line-cap': 'round', 'line-join': 'round' },
+          paint: {
+            'line-color': '#C96442',
+            'line-width': ['case', ['get', 'hub'], 1.4, 0.8],
+            'line-opacity': ['case', ['get', 'hub'], 0.55, 0.32],
+            'line-dasharray': [2, 3]
+          }
+        }, 'jabi-halo');
+
+        // Click → popup
+        const showPopup = (e) => {
+          const f = e.features[0];
+          new mapboxgl.Popup({ offset: 14, closeButton: false })
+            .setLngLat(f.geometry.coordinates)
+            .setHTML(`<b>${f.properties.name}</b>`)
+            .addTo(map);
+        };
+        map.on('click', 'jabi-pin', showPopup);
+        const hover = (on) => () => map.getCanvas().style.cursor = on ? 'pointer' : '';
+        map.on('mouseenter', 'jabi-pin', hover(true));
+        map.on('mouseleave', 'jabi-pin', hover(false));
 
         map.addControl(new mapboxgl.NavigationControl({ showCompass: false }), 'top-right');
       });
