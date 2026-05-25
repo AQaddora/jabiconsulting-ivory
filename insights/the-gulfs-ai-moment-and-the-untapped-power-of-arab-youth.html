@@ -878,56 +878,72 @@
   <title>The Gulf’s AI Moment and the Untapped Power of Arab Youth — Jabi Consulting</title>
   <link rel="canonical" href="../insights/the-gulfs-ai-moment-and-the-untapped-power-of-arab-youth.html" />
   <meta property="og:title" content="The Gulf’s AI Moment and the Untapped Power of Arab Youth" />
-  <meta property="og:description" content="The Gulf’s AI Moment and the Untapped Power of Arab Youth — Jabi Consulting insights." />
   <meta property="og:image" content="../assets/articles/the-gulfs-ai-moment-and-the-untapped-power-of-arab-youth.jpg" />
   <style>
     .article-page { padding: 60px 0 100px; }
+    .article-page .container { max-width: 880px; }
     .article-back {
       display: inline-flex; align-items: center; gap: 6px;
       font-size: 13px; color: var(--ink-dim);
-      margin-bottom: 28px;
+      margin-bottom: 32px;
       text-transform: uppercase; letter-spacing: .12em;
       font-family: "JetBrains Mono", monospace;
       transition: color .2s;
     }
     .article-back:hover { color: var(--accent); }
     .article-page h1.article-h1 {
-      font-size: clamp(32px, 4.2vw, 54px);
+      font-size: clamp(30px, 4vw, 50px);
       line-height: 1.1; letter-spacing: -.02em;
-      font-weight: 800; max-width: 900px; margin: 0 0 18px;
+      font-weight: 800; margin: 0 0 18px;
     }
     .article-page .meta {
       font-family: "JetBrains Mono", monospace;
       font-size: 12px; letter-spacing: .12em;
       color: var(--ink-dim); margin-bottom: 32px;
       text-transform: uppercase;
+      display: flex; flex-wrap: wrap; gap: 12px; align-items: center;
     }
-    .article-page .meta .cat { color: var(--accent); margin-right: 14px; padding: 4px 12px; background: rgba(201,100,66,.10); border-radius: 999px; }
+    .article-page .meta .cat { color: var(--accent); padding: 5px 14px; background: rgba(201,100,66,.10); border-radius: 999px; }
     .article-page .cover {
-      width: 100%; max-height: 480px; object-fit: cover;
+      width: 100%; max-height: 460px; object-fit: cover;
       border-radius: 16px; margin: 0 0 42px;
       border: 1px solid var(--line-strong);
     }
-    .article-body {
-      max-width: 760px; margin: 0 auto;
-      font-size: 18px; line-height: 1.75;
-      color: var(--ink);
-    }
-    .article-body p { margin: 0 0 22px; }
-    .article-body h2, .article-body h3 { font-weight: 700; letter-spacing: -.01em; margin: 42px 0 16px; line-height: 1.25; }
-    .article-body h2 { font-size: 28px; } .article-body h3 { font-size: 22px; }
+    .article-body { font-size: 18px; line-height: 1.75; color: var(--ink); }
+    .article-body > * + * { margin-top: 22px; }
+    .article-body p { margin: 0; }
+    .article-body h2, .article-body h3, .article-body h4 { font-weight: 700; letter-spacing: -.01em; margin: 42px 0 14px; line-height: 1.25; }
+    .article-body h2 { font-size: 28px; }
+    .article-body h3 { font-size: 22px; }
+    .article-body h4 { font-size: 19px; }
     .article-body a { color: var(--accent); border-bottom: 1px solid rgba(201,100,66,.3); }
     .article-body a:hover { border-bottom-color: var(--accent); }
-    .article-body ul, .article-body ol { padding-left: 22px; margin: 0 0 22px; }
+    .article-body ul, .article-body ol { padding-left: 22px; margin: 0; }
     .article-body li { margin-bottom: 10px; }
-    .article-body img { max-width: 100%; height: auto; margin: 22px 0; border-radius: 10px; }
+    .article-body img { max-width: 100%; height: auto; margin: 22px 0; border-radius: 10px; display: block; }
     .article-body blockquote { border-left: 3px solid var(--accent); padding: 8px 0 8px 22px; margin: 30px 0; font-style: italic; color: var(--ink-dim); }
-    .article-source {
-      max-width: 760px; margin: 56px auto 0;
-      padding-top: 28px; border-top: 1px solid var(--line);
-      font-size: 13px; color: var(--muted);
+    .article-body strong { color: var(--ink); font-weight: 700; }
+
+    /* PDF embed */
+    .pdf-embed { margin: 36px 0; background: var(--bg-2); border: 1px solid var(--line-strong); border-radius: 14px; overflow: hidden; box-shadow: var(--shadow); }
+    .pdf-embed iframe { width: 100%; height: clamp(540px, 80vh, 880px); border: 0; display: block; background: #fff; }
+    .pdf-embed .pdf-download { display: block; padding: 14px 22px; background: var(--ink); color: #fff !important; border: 0; border-bottom: 0; text-align: center; font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; transition: background .2s; }
+    .pdf-embed .pdf-download:hover { background: var(--accent); border-bottom: 0; }
+
+    .article-source { margin: 56px 0 0; padding-top: 28px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+    .article-source a { color: var(--accent); border-bottom: 1px solid rgba(201,100,66,.3); }
+    .article-nav { margin-top: 60px; padding-top: 28px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .article-nav a { font-size: 13px; color: var(--ink-dim); transition: color .2s; max-width: 45%; }
+    .article-nav a:hover { color: var(--accent); }
+    .article-nav .dir { display: block; font-size: 10px; color: var(--accent); margin-bottom: 4px; font-family: "JetBrains Mono", monospace; letter-spacing: .12em; text-transform: uppercase; }
+    .article-nav .ttl { display: block; font-size: 14px; color: var(--ink); font-weight: 600; line-height: 1.3; }
+    .article-nav .next { text-align: right; }
+
+    @media (max-width: 720px) {
+      .article-page { padding: 40px 0 80px; }
+      .pdf-embed iframe { height: clamp(380px, 70vh, 600px); }
+      .article-body { font-size: 16.5px; }
     }
-    .article-source a { color: var(--accent); }
   </style>
 </head>
 <body>
@@ -959,88 +975,20 @@
       <div class="meta"><span class="cat">AI &amp; Workforce</span><span class="date">December 26, 2025</span></div>
       <h1 class="article-h1">The Gulf’s AI Moment and the Untapped Power of Arab Youth</h1>
       <img src="../assets/articles/the-gulfs-ai-moment-and-the-untapped-power-of-arab-youth.jpg" alt="" class="cover" />
-      <div class="article-body">
-				<div class="elementor-widget-container">
-					<p id="ember187" class="ember-view reader-text-block__paragraph">By Hisham Jabi, CEO of Jabi Consulting</p>
-<p id="ember188" class="ember-view reader-text-block__paragraph">The Gulf’s push into artificial intelligence is no longer aspirational—it is capitalized. Global AI investment is projected to exceed <strong>$4 trillion by 2030</strong>, and GCC countries are positioning themselves aggressively within this market. Saudi Arabia and the UAE alone have committed <strong>tens of billions of dollars</strong> to AI infrastructure, sovereign models, cloud computing, and smart government platforms. Yet despite this scale of investment, one constraint remains persistent: <strong>talent</strong>. AI is labor-intensive. Studies estimate that <strong>60–70% of AI value creation depends on human capital</strong>, not compute. However, GCC labor markets are small and demographically limited. At the same time, the broader Arab region is facing the opposite challenge. Youth unemployment exceeds <strong>30% in Jordan</strong>, <strong>40% in Palestine</strong>, and remains above <strong>25–35% across North Africa</strong>, even among university graduates. Palestine alone produces roughly <strong>5,000 STEM graduates each year</strong>, while Tunisia and Egypt graduate <strong>tens of thousands</strong> annually. The issue is not supply—it is alignment.</p>
-<p id="ember189" class="ember-view reader-text-block__paragraph">AI work is increasingly distributed. Tasks such as data annotation, Arabic-language model training, quality assurance, red-teaming, and applied analytics can be performed remotely. Globally, the AI services and data-operations market is growing at <strong>over 20% annually</strong>, with countries like India generating <strong>multi-billion-dollar digital labor industries</strong>. The Arab region is uniquely positioned to do the same—particularly in Arabic-language AI, where global capacity remains limited. The opportunity is significant, but the risks are real. Traditional outsourcing models risk accelerating <strong>brain drain</strong>, extracting talent without reinvestment. Poorly curated Arabic datasets can embed bias, misinformation, or extremist narratives into AI systems—a serious concern in a region where language, politics, and identity are deeply intertwined. Moreover, data governance frameworks in much of MENA remain uneven, affecting quality and trust.</p>
-<p id="ember190" class="ember-view reader-text-block__paragraph">Yet these risks are manageable with better design.</p>
-<p id="ember191" class="ember-view reader-text-block__paragraph">One of the strongest advantages lies in <strong>women’s participation</strong>. Female labor-force participation across much of MENA remains below <strong>25%</strong>, compared to a global average above <strong>50%</strong>. AI-enabled work—remote, flexible, and home-based—lowers entry barriers. Evidence from digital labor platforms shows that women disproportionately benefit when training and remote access are provided. Even modest participation gains could translate into <strong>millions of productive work hours</strong> and measurable household income growth.</p>
-<p id="ember192" class="ember-view reader-text-block__paragraph">Language is another strategic dimension. Despite having more than <strong>500 million native speakers</strong>, Arabic remains underrepresented in high-quality AI training data. Most foundation models are English-dominant, limiting accuracy and safety in Arabic contexts. Investing in structured, domain-specific Arabic datasets is not a cultural luxury—it is essential for effective AI in education, health, public services, and digital governance across the region.</p>
-<p id="ember193" class="ember-view reader-text-block__paragraph">The old model—short-term contracts and low-value outsourcing—will not work. A more viable approach is emerging: <strong>long-term talent investment</strong>. GCC-backed programs could finance large-scale AI training—<strong>30,000 to 40,000 youth over five years</strong>—using <strong>pay-as-you-earn</strong> models already proven in Western education systems. Trainees work with GCC-linked firms, repay training costs gradually once employed, and generate returns while retaining skills locally.</p>
-<p id="ember194" class="ember-view reader-text-block__paragraph">This is not aid. It is <strong>disciplined investment</strong>.</p>
-<p id="ember195" class="ember-view reader-text-block__paragraph">If Gulf capital, Levant and North African talent, and global AI demand are aligned, MENA could emerge as a competitive AI workforce hub—creating value across borders rather than extracting it from one side. The data supports it. The technology enables it. What remains is leadership with the vision to connect the pieces.</p>
+      <div class="article-body"><div>
+					<p>By Hisham Jabi, CEO of Jabi Consulting</p>
+<p>The Gulf’s push into artificial intelligence is no longer aspirational—it is capitalized. Global AI investment is projected to exceed <strong>$4 trillion by 2030</strong>, and GCC countries are positioning themselves aggressively within this market. Saudi Arabia and the UAE alone have committed <strong>tens of billions of dollars</strong> to AI infrastructure, sovereign models, cloud computing, and smart government platforms. Yet despite this scale of investment, one constraint remains persistent: <strong>talent</strong>. AI is labor-intensive. Studies estimate that <strong>60–70% of AI value creation depends on human capital</strong>, not compute. However, GCC labor markets are small and demographically limited. At the same time, the broader Arab region is facing the opposite challenge. Youth unemployment exceeds <strong>30% in Jordan</strong>, <strong>40% in Palestine</strong>, and remains above <strong>25–35% across North Africa</strong>, even among university graduates. Palestine alone produces roughly <strong>5,000 STEM graduates each year</strong>, while Tunisia and Egypt graduate <strong>tens of thousands</strong> annually. The issue is not supply—it is alignment.</p>
+<p>AI work is increasingly distributed. Tasks such as data annotation, Arabic-language model training, quality assurance, red-teaming, and applied analytics can be performed remotely. Globally, the AI services and data-operations market is growing at <strong>over 20% annually</strong>, with countries like India generating <strong>multi-billion-dollar digital labor industries</strong>. The Arab region is uniquely positioned to do the same—particularly in Arabic-language AI, where global capacity remains limited. The opportunity is significant, but the risks are real. Traditional outsourcing models risk accelerating <strong>brain drain</strong>, extracting talent without reinvestment. Poorly curated Arabic datasets can embed bias, misinformation, or extremist narratives into AI systems—a serious concern in a region where language, politics, and identity are deeply intertwined. Moreover, data governance frameworks in much of MENA remain uneven, affecting quality and trust.</p>
+<p>Yet these risks are manageable with better design.</p>
+<p>One of the strongest advantages lies in <strong>women’s participation</strong>. Female labor-force participation across much of MENA remains below <strong>25%</strong>, compared to a global average above <strong>50%</strong>. AI-enabled work—remote, flexible, and home-based—lowers entry barriers. Evidence from digital labor platforms shows that women disproportionately benefit when training and remote access are provided. Even modest participation gains could translate into <strong>millions of productive work hours</strong> and measurable household income growth.</p>
+<p>Language is another strategic dimension. Despite having more than <strong>500 million native speakers</strong>, Arabic remains underrepresented in high-quality AI training data. Most foundation models are English-dominant, limiting accuracy and safety in Arabic contexts. Investing in structured, domain-specific Arabic datasets is not a cultural luxury—it is essential for effective AI in education, health, public services, and digital governance across the region.</p>
+<p>The old model—short-term contracts and low-value outsourcing—will not work. A more viable approach is emerging: <strong>long-term talent investment</strong>. GCC-backed programs could finance large-scale AI training—<strong>30,000 to 40,000 youth over five years</strong>—using <strong>pay-as-you-earn</strong> models already proven in Western education systems. Trainees work with GCC-linked firms, repay training costs gradually once employed, and generate returns while retaining skills locally.</p>
+<p>This is not aid. It is <strong>disciplined investment</strong>.</p>
+<p>If Gulf capital, Levant and North African talent, and global AI demand are aligned, MENA could emerge as a competitive AI workforce hub—creating value across borders rather than extracting it from one side. The data supports it. The technology enables it. What remains is leadership with the vision to connect the pieces.</p>
 				</div>
-				</div>
-				<div class="elementor-element elementor-element-1b3e6866 elementor-widget elementor-widget-post-navigation" data-id="1b3e6866" data-element_type="widget" data-e-type="widget" data-widget_type="post-navigation.default">
-				<div class="elementor-widget-container">
-							<div class="elementor-post-navigation" role="navigation" aria-label="Post Navigation">
-			<div class="elementor-post-navigation__prev elementor-post-navigation__link">
-				<a href="https://jabiconsulting.com/happy-holidays-from-jabi-consulting/" rel="prev"><span class="elementor-post-navigation__link__prev"><span class="post-navigation__prev--label">Previous</span></span></a>			</div>
-						<div class="elementor-post-navigation__next elementor-post-navigation__link">
-				<a href="https://jabiconsulting.com/mena-monthly-pulse-volume-11/" rel="next"><span class="elementor-post-navigation__link__next"><span class="post-navigation__next--label">Next</span></span></a>			</div>
-		</div>
-						</div>
-				</div>
-		<div class="elementor-element elementor-element-5f36294f e-con-full e-flex e-con e-child" data-id="5f36294f" data-element_type="container" data-e-type="container">
-				<div class="elementor-element elementor-element-71152fa8 elementor-widget elementor-widget-heading" data-id="71152fa8" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
-				<div class="elementor-widget-container">
-					<span class="elementor-heading-title elementor-size-default">Share the Post:</span>				</div>
-				</div>
-				<div class="elementor-element elementor-element-14a35fd8 elementor-share-buttons--view-icon elementor-share-buttons--skin-minimal elementor-share-buttons--color-custom elementor-share-buttons--shape-square elementor-grid-0 elementor-widget elementor-widget-share-buttons" data-id="14a35fd8" data-element_type="widget" data-e-type="widget" data-widget_type="share-buttons.default">
-				<div class="elementor-widget-container">
-							<div class="elementor-grid" role="list">
-								<div class="elementor-grid-item" role="listitem">
-						<div class="elementor-share-btn elementor-share-btn_facebook" role="button" tabindex="0" aria-label="Share on facebook">
-															<span class="elementor-share-btn__icon">
-								<i class="fab fa-facebook" aria-hidden="true"></i>							</span>
-																				</div>
-					</div>
-									<div class="elementor-grid-item" role="listitem">
-						<div class="elementor-share-btn elementor-share-btn_twitter" role="button" tabindex="0" aria-label="Share on twitter">
-															<span class="elementor-share-btn__icon">
-								<i class="fab fa-twitter" aria-hidden="true"></i>							</span>
-																				</div>
-					</div>
-									<div class="elementor-grid-item" role="listitem">
-						<div class="elementor-share-btn elementor-share-btn_linkedin" role="button" tabindex="0" aria-label="Share on linkedin">
-															<span class="elementor-share-btn__icon">
-								<i class="fab fa-linkedin" aria-hidden="true"></i>							</span>
-																				</div>
-					</div>
-						</div>
-						</div>
-				</div>
-				</div>
-					</div>
-				</div>
-		<div class="elementor-element elementor-element-9af363d e-flex e-con-boxed e-con e-parent" data-id="9af363d" data-element_type="container" data-e-type="container">
-					<div class="e-con-inner">
-				<div class="elementor-element elementor-element-3d8e0f7c elementor-widget elementor-widget-heading" data-id="3d8e0f7c" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
-				<div class="elementor-widget-container">
-					<h2 class="elementor-heading-title elementor-size-default">Related Posts</h2>				</div>
-				</div>
-				<div class="elementor-element elementor-element-56c82c5b elementor-posts__hover-none elementor-grid-2 elementor-grid-tablet-2 elementor-grid-mobile-1 elementor-posts--thumbnail-top elementor-widget elementor-widget-posts" data-id="56c82c5b" data-element_type="widget" data-e-type="widget" data-settings="{&quot;cards_row_gap&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:80,&quot;sizes&quot;:[]},&quot;cards_row_gap_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:71,&quot;sizes&quot;:[]},&quot;cards_row_gap_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:30,&quot;sizes&quot;:[]},&quot;cards_columns&quot;:&quot;2&quot;,&quot;cards_columns_tablet&quot;:&quot;2&quot;,&quot;cards_columns_mobile&quot;:&quot;1&quot;}" data-widget_type="posts.cards">
-				<div class="elementor-widget-container">
-							<div class="elementor-posts-container elementor-posts elementor-posts--skin-cards elementor-grid" role="list">
-				<article class="elementor-post elementor-grid-item post-7238 post type-post status-publish format-standard has-post-thumbnail hentry category-press-releases" role="listitem">
-			<div class="elementor-post__card">
-				<a class="elementor-post__thumbnail__link" href="https://jabiconsulting.com/mena-monthly-pulse-volume-4-2026/" tabindex="-1" ><div class="elementor-post__thumbnail"><img width="1254" height="836" src="https://jabiconsulting.com/wp-content/uploads/2026/04/qtq80-sbAKZa.jpeg" class="attachment-full size-full wp-image-7235" alt="" decoding="async" srcset="https://jabiconsulting.com/wp-content/uploads/2026/04/qtq80-sbAKZa.jpeg 1254w, https://jabiconsulting.com/wp-content/uploads/2026/04/qtq80-sbAKZa-300x200.jpeg 300w, https://jabiconsulting.com/wp-content/uploads/2026/04/qtq80-sbAKZa-1024x683.jpeg 1024w, https://jabiconsulting.com/wp-content/uploads/2026/04/qtq80-sbAKZa-768x512.jpeg 768w" sizes="(max-width: 1254px) 100vw, 1254px" /></div></a>
-				<div class="elementor-post__text">
-				<h4 class="elementor-post__title">
-			<a href="https://jabiconsulting.com/mena-monthly-pulse-volume-4-2026/" >
-				MENA Monthly Pulse Volume 4 (2026)			</a>
-		</h4>
-				<div class="elementor-post__excerpt">
-			<p>The Jabi Consulting team is excited to share the fourth edition of 2026 of the MENA Monthly Pulse* – a</p>
-		</div>
-		
-		<a class="elementor-post__read-more" href="https://jabiconsulting.com/mena-monthly-pulse-volume-4-2026/" aria-label="Read more about MENA Monthly Pulse Volume 4 (2026)" tabindex="-1" >
-			Read More		</a>
-
-				</div>
-					</div>
+				</div></div>
       <div class="article-source">Originally published at <a href="https://jabiconsulting.com/the-gulfs-ai-moment-and-the-untapped-power-of-arab-youth/" target="_blank" rel="noopener">jabiconsulting.com →</a></div>
+      <div class="article-nav"><a class="prev" href="happy-holidays-from-jabi-consulting.html"><span class="dir">← Older</span><span class="ttl">Happy Holidays from Jabi Consulting</span></a><a class="next" href="mena-monthly-pulse-volume-11.html"><span class="dir">Newer →</span><span class="ttl">MENA Monthly Pulse Volume 11</span></a></div>
     </div>
   </main>
   <footer>

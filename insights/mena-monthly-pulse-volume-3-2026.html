@@ -878,56 +878,72 @@
   <title>MENA Monthly Pulse Volume 3 (2026) — Jabi Consulting</title>
   <link rel="canonical" href="../insights/mena-monthly-pulse-volume-3-2026.html" />
   <meta property="og:title" content="MENA Monthly Pulse Volume 3 (2026)" />
-  <meta property="og:description" content="MENA Monthly Pulse Volume 3 (2026) — Jabi Consulting insights." />
   <meta property="og:image" content="../assets/articles/mena-monthly-pulse-volume-3-2026.jpeg" />
   <style>
     .article-page { padding: 60px 0 100px; }
+    .article-page .container { max-width: 880px; }
     .article-back {
       display: inline-flex; align-items: center; gap: 6px;
       font-size: 13px; color: var(--ink-dim);
-      margin-bottom: 28px;
+      margin-bottom: 32px;
       text-transform: uppercase; letter-spacing: .12em;
       font-family: "JetBrains Mono", monospace;
       transition: color .2s;
     }
     .article-back:hover { color: var(--accent); }
     .article-page h1.article-h1 {
-      font-size: clamp(32px, 4.2vw, 54px);
+      font-size: clamp(30px, 4vw, 50px);
       line-height: 1.1; letter-spacing: -.02em;
-      font-weight: 800; max-width: 900px; margin: 0 0 18px;
+      font-weight: 800; margin: 0 0 18px;
     }
     .article-page .meta {
       font-family: "JetBrains Mono", monospace;
       font-size: 12px; letter-spacing: .12em;
       color: var(--ink-dim); margin-bottom: 32px;
       text-transform: uppercase;
+      display: flex; flex-wrap: wrap; gap: 12px; align-items: center;
     }
-    .article-page .meta .cat { color: var(--accent); margin-right: 14px; padding: 4px 12px; background: rgba(201,100,66,.10); border-radius: 999px; }
+    .article-page .meta .cat { color: var(--accent); padding: 5px 14px; background: rgba(201,100,66,.10); border-radius: 999px; }
     .article-page .cover {
-      width: 100%; max-height: 480px; object-fit: cover;
+      width: 100%; max-height: 460px; object-fit: cover;
       border-radius: 16px; margin: 0 0 42px;
       border: 1px solid var(--line-strong);
     }
-    .article-body {
-      max-width: 760px; margin: 0 auto;
-      font-size: 18px; line-height: 1.75;
-      color: var(--ink);
-    }
-    .article-body p { margin: 0 0 22px; }
-    .article-body h2, .article-body h3 { font-weight: 700; letter-spacing: -.01em; margin: 42px 0 16px; line-height: 1.25; }
-    .article-body h2 { font-size: 28px; } .article-body h3 { font-size: 22px; }
+    .article-body { font-size: 18px; line-height: 1.75; color: var(--ink); }
+    .article-body > * + * { margin-top: 22px; }
+    .article-body p { margin: 0; }
+    .article-body h2, .article-body h3, .article-body h4 { font-weight: 700; letter-spacing: -.01em; margin: 42px 0 14px; line-height: 1.25; }
+    .article-body h2 { font-size: 28px; }
+    .article-body h3 { font-size: 22px; }
+    .article-body h4 { font-size: 19px; }
     .article-body a { color: var(--accent); border-bottom: 1px solid rgba(201,100,66,.3); }
     .article-body a:hover { border-bottom-color: var(--accent); }
-    .article-body ul, .article-body ol { padding-left: 22px; margin: 0 0 22px; }
+    .article-body ul, .article-body ol { padding-left: 22px; margin: 0; }
     .article-body li { margin-bottom: 10px; }
-    .article-body img { max-width: 100%; height: auto; margin: 22px 0; border-radius: 10px; }
+    .article-body img { max-width: 100%; height: auto; margin: 22px 0; border-radius: 10px; display: block; }
     .article-body blockquote { border-left: 3px solid var(--accent); padding: 8px 0 8px 22px; margin: 30px 0; font-style: italic; color: var(--ink-dim); }
-    .article-source {
-      max-width: 760px; margin: 56px auto 0;
-      padding-top: 28px; border-top: 1px solid var(--line);
-      font-size: 13px; color: var(--muted);
+    .article-body strong { color: var(--ink); font-weight: 700; }
+
+    /* PDF embed */
+    .pdf-embed { margin: 36px 0; background: var(--bg-2); border: 1px solid var(--line-strong); border-radius: 14px; overflow: hidden; box-shadow: var(--shadow); }
+    .pdf-embed iframe { width: 100%; height: clamp(540px, 80vh, 880px); border: 0; display: block; background: #fff; }
+    .pdf-embed .pdf-download { display: block; padding: 14px 22px; background: var(--ink); color: #fff !important; border: 0; border-bottom: 0; text-align: center; font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; transition: background .2s; }
+    .pdf-embed .pdf-download:hover { background: var(--accent); border-bottom: 0; }
+
+    .article-source { margin: 56px 0 0; padding-top: 28px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+    .article-source a { color: var(--accent); border-bottom: 1px solid rgba(201,100,66,.3); }
+    .article-nav { margin-top: 60px; padding-top: 28px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .article-nav a { font-size: 13px; color: var(--ink-dim); transition: color .2s; max-width: 45%; }
+    .article-nav a:hover { color: var(--accent); }
+    .article-nav .dir { display: block; font-size: 10px; color: var(--accent); margin-bottom: 4px; font-family: "JetBrains Mono", monospace; letter-spacing: .12em; text-transform: uppercase; }
+    .article-nav .ttl { display: block; font-size: 14px; color: var(--ink); font-weight: 600; line-height: 1.3; }
+    .article-nav .next { text-align: right; }
+
+    @media (max-width: 720px) {
+      .article-page { padding: 40px 0 80px; }
+      .pdf-embed iframe { height: clamp(380px, 70vh, 600px); }
+      .article-body { font-size: 16.5px; }
     }
-    .article-source a { color: var(--accent); }
   </style>
 </head>
 <body>
@@ -959,97 +975,26 @@
       <div class="meta"><span class="cat">MENA Monthly Pulse</span><span class="date">March 30, 2026</span></div>
       <h1 class="article-h1">MENA Monthly Pulse Volume 3 (2026)</h1>
       <img src="../assets/articles/mena-monthly-pulse-volume-3-2026.jpeg" alt="" class="cover" />
-      <div class="article-body">
-				<div class="elementor-widget-container">
-							<div data-elementor-type="wp-post" data-elementor-id="7219" class="elementor elementor-7219" data-elementor-post-type="post">
-				<div class="elementor-element elementor-element-49d8f722 e-flex e-con-boxed e-con e-parent" data-id="49d8f722" data-element_type="container" data-e-type="container">
-					<div class="e-con-inner">
-				<div class="elementor-element elementor-element-4bc45712 elementor-widget elementor-widget-text-editor" data-id="4bc45712" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
-				<div class="elementor-widget-container">
+      <div class="article-body"><div>
+				<div data-element_type="container">
+					<div>
+				<div data-element_type="widget" data-widget_type="text-editor.default">
+				<div>
 									The Jabi Consulting team is excited to share the third edition of 2026 of the MENA Monthly Pulse* – a monthly newsletter aimed at providing policymakers, practitioners and leaders with the latest political and economic trends from the Middle East and Gulf Cooperation Council. If you are interested in receiving this publication directly to your inbox, please email us at info@jabiconsulting.com and connect with us on <a href="https://www.linkedin.com/company/jabcionsulting/">LinkedIn</a>.  *The views expressed in the following articles do not reflect the views of Jabi Consulting.								</div>
-				</div>
 					</div>
 				</div>
-		<div class="elementor-element elementor-element-3fba0ff e-flex e-con-boxed e-con e-parent" data-id="3fba0ff" data-element_type="container" data-e-type="container">
-					<div class="e-con-inner">
-				<div class="elementor-element elementor-element-74c462a elementor-widget elementor-widget-pdfjs-viewer" data-id="74c462a" data-element_type="widget" data-e-type="widget" data-widget_type="pdfjs-viewer.default">
-				<div class="elementor-widget-container">
-					<iframe width="" height="1200" src="https://jabiconsulting.com/wp-content/plugins/pdfjs-viewer-for-elementor//assets/js/pdfjs/web/viewer.html?file=https://jabiconsulting.com/wp-content/uploads/2026/03/March-26-Jabi-Consulting-Monthly-Pulse-1-1-2.pdf"></iframe>				</div>
+		<div data-element_type="container">
+					<div>
+				<div data-element_type="widget" data-widget_type="pdfjs-viewer.default">
+				<div><div class="pdf-embed"><iframe src="../assets/pdfs/mena-monthly-pulse-volume-3-2026.pdf#view=FitH" title="PDF" loading="lazy"></iframe><a class="pdf-download" href="../assets/pdfs/mena-monthly-pulse-volume-3-2026.pdf" target="_blank" rel="noopener">Download PDF ↓</a></div></div>
 				</div>
 					</div>
 				</div>
 				</div>
 						</div>
-				</div>
-				<div class="elementor-element elementor-element-1b3e6866 elementor-widget elementor-widget-post-navigation" data-id="1b3e6866" data-element_type="widget" data-e-type="widget" data-widget_type="post-navigation.default">
-				<div class="elementor-widget-container">
-							<div class="elementor-post-navigation" role="navigation" aria-label="Post Navigation">
-			<div class="elementor-post-navigation__prev elementor-post-navigation__link">
-				<a href="https://jabiconsulting.com/mena-monthly-pulse-volume-2-2026/" rel="prev"><span class="elementor-post-navigation__link__prev"><span class="post-navigation__prev--label">Previous</span></span></a>			</div>
-						<div class="elementor-post-navigation__next elementor-post-navigation__link">
-				<a href="https://jabiconsulting.com/is-ai-solving-the-youth-labor-market-mismatch-in-mena/" rel="next"><span class="elementor-post-navigation__link__next"><span class="post-navigation__next--label">Next</span></span></a>			</div>
-		</div>
-						</div>
-				</div>
-		<div class="elementor-element elementor-element-5f36294f e-con-full e-flex e-con e-child" data-id="5f36294f" data-element_type="container" data-e-type="container">
-				<div class="elementor-element elementor-element-71152fa8 elementor-widget elementor-widget-heading" data-id="71152fa8" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
-				<div class="elementor-widget-container">
-					<span class="elementor-heading-title elementor-size-default">Share the Post:</span>				</div>
-				</div>
-				<div class="elementor-element elementor-element-14a35fd8 elementor-share-buttons--view-icon elementor-share-buttons--skin-minimal elementor-share-buttons--color-custom elementor-share-buttons--shape-square elementor-grid-0 elementor-widget elementor-widget-share-buttons" data-id="14a35fd8" data-element_type="widget" data-e-type="widget" data-widget_type="share-buttons.default">
-				<div class="elementor-widget-container">
-							<div class="elementor-grid" role="list">
-								<div class="elementor-grid-item" role="listitem">
-						<div class="elementor-share-btn elementor-share-btn_facebook" role="button" tabindex="0" aria-label="Share on facebook">
-															<span class="elementor-share-btn__icon">
-								<i class="fab fa-facebook" aria-hidden="true"></i>							</span>
-																				</div>
-					</div>
-									<div class="elementor-grid-item" role="listitem">
-						<div class="elementor-share-btn elementor-share-btn_twitter" role="button" tabindex="0" aria-label="Share on twitter">
-															<span class="elementor-share-btn__icon">
-								<i class="fab fa-twitter" aria-hidden="true"></i>							</span>
-																				</div>
-					</div>
-									<div class="elementor-grid-item" role="listitem">
-						<div class="elementor-share-btn elementor-share-btn_linkedin" role="button" tabindex="0" aria-label="Share on linkedin">
-															<span class="elementor-share-btn__icon">
-								<i class="fab fa-linkedin" aria-hidden="true"></i>							</span>
-																				</div>
-					</div>
-						</div>
-						</div>
-				</div>
-				</div>
-					</div>
-				</div>
-		<div class="elementor-element elementor-element-9af363d e-flex e-con-boxed e-con e-parent" data-id="9af363d" data-element_type="container" data-e-type="container">
-					<div class="e-con-inner">
-				<div class="elementor-element elementor-element-3d8e0f7c elementor-widget elementor-widget-heading" data-id="3d8e0f7c" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
-				<div class="elementor-widget-container">
-					<h2 class="elementor-heading-title elementor-size-default">Related Posts</h2>				</div>
-				</div>
-				<div class="elementor-element elementor-element-56c82c5b elementor-posts__hover-none elementor-grid-2 elementor-grid-tablet-2 elementor-grid-mobile-1 elementor-posts--thumbnail-top elementor-widget elementor-widget-posts" data-id="56c82c5b" data-element_type="widget" data-e-type="widget" data-settings="{&quot;cards_row_gap&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:80,&quot;sizes&quot;:[]},&quot;cards_row_gap_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:71,&quot;sizes&quot;:[]},&quot;cards_row_gap_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:30,&quot;sizes&quot;:[]},&quot;cards_columns&quot;:&quot;2&quot;,&quot;cards_columns_tablet&quot;:&quot;2&quot;,&quot;cards_columns_mobile&quot;:&quot;1&quot;}" data-widget_type="posts.cards">
-				<div class="elementor-widget-container">
-							<div class="elementor-posts-container elementor-posts elementor-posts--skin-cards elementor-grid" role="list">
-				<article class="elementor-post elementor-grid-item post-7238 post type-post status-publish format-standard has-post-thumbnail hentry category-press-releases" role="listitem">
-			<div class="elementor-post__card">
-				<a class="elementor-post__thumbnail__link" href="https://jabiconsulting.com/mena-monthly-pulse-volume-4-2026/" tabindex="-1" ><div class="elementor-post__thumbnail"><img width="1254" height="836" src="https://jabiconsulting.com/wp-content/uploads/2026/04/qtq80-sbAKZa.jpeg" class="attachment-full size-full wp-image-7235" alt="" decoding="async" srcset="https://jabiconsulting.com/wp-content/uploads/2026/04/qtq80-sbAKZa.jpeg 1254w, https://jabiconsulting.com/wp-content/uploads/2026/04/qtq80-sbAKZa-300x200.jpeg 300w, https://jabiconsulting.com/wp-content/uploads/2026/04/qtq80-sbAKZa-1024x683.jpeg 1024w, https://jabiconsulting.com/wp-content/uploads/2026/04/qtq80-sbAKZa-768x512.jpeg 768w" sizes="(max-width: 1254px) 100vw, 1254px" /></div></a>
-				<div class="elementor-post__text">
-				<h4 class="elementor-post__title">
-			<a href="https://jabiconsulting.com/mena-monthly-pulse-volume-4-2026/" >
-				MENA Monthly Pulse Volume 4 (2026)			</a>
-		</h4>
-				<div class="elementor-post__excerpt">
-			<p>The Jabi Consulting team is excited to share the fourth edition of 2026 of the MENA Monthly Pulse* – a</p>
-		</div>
-		
-		<a class="elementor-post__read-more" href="https://jabiconsulting.com/mena-monthly-pulse-volume-4-2026/" aria-label="Read more about MENA Monthly Pulse Volume 4 (2026)" tabindex="-1" >
-			Read More		</a>
-
-				</div>
-					</div>
+				</div></div>
       <div class="article-source">Originally published at <a href="https://jabiconsulting.com/mena-monthly-pulse-volume-3-2026/" target="_blank" rel="noopener">jabiconsulting.com →</a></div>
+      <div class="article-nav"><a class="prev" href="mena-monthly-pulse-volume-2-2026.html"><span class="dir">← Older</span><span class="ttl">MENA Monthly Pulse Volume 2 (2026)</span></a><a class="next" href="is-ai-solving-the-youth-labor-market-mismatch-in-mena.html"><span class="dir">Newer →</span><span class="ttl">Is AI Solving the Youth Labor Market Mismatch in MENA?</span></a></div>
     </div>
   </main>
   <footer>

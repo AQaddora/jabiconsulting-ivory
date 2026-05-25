@@ -878,56 +878,72 @@
   <title>Engaging the Diaspora: Building the First Palestinian State of Mind — Jabi Consulting</title>
   <link rel="canonical" href="../insights/engaging-the-diaspora-building-the-first-palestinian-state-of-mind.html" />
   <meta property="og:title" content="Engaging the Diaspora: Building the First Palestinian State of Mind" />
-  <meta property="og:description" content="Engaging the Diaspora: Building the First Palestinian State of Mind — Jabi Consulting insights." />
   <meta property="og:image" content="../assets/articles/engaging-the-diaspora-building-the-first-palestinian-state-of-mind.jpg" />
   <style>
     .article-page { padding: 60px 0 100px; }
+    .article-page .container { max-width: 880px; }
     .article-back {
       display: inline-flex; align-items: center; gap: 6px;
       font-size: 13px; color: var(--ink-dim);
-      margin-bottom: 28px;
+      margin-bottom: 32px;
       text-transform: uppercase; letter-spacing: .12em;
       font-family: "JetBrains Mono", monospace;
       transition: color .2s;
     }
     .article-back:hover { color: var(--accent); }
     .article-page h1.article-h1 {
-      font-size: clamp(32px, 4.2vw, 54px);
+      font-size: clamp(30px, 4vw, 50px);
       line-height: 1.1; letter-spacing: -.02em;
-      font-weight: 800; max-width: 900px; margin: 0 0 18px;
+      font-weight: 800; margin: 0 0 18px;
     }
     .article-page .meta {
       font-family: "JetBrains Mono", monospace;
       font-size: 12px; letter-spacing: .12em;
       color: var(--ink-dim); margin-bottom: 32px;
       text-transform: uppercase;
+      display: flex; flex-wrap: wrap; gap: 12px; align-items: center;
     }
-    .article-page .meta .cat { color: var(--accent); margin-right: 14px; padding: 4px 12px; background: rgba(201,100,66,.10); border-radius: 999px; }
+    .article-page .meta .cat { color: var(--accent); padding: 5px 14px; background: rgba(201,100,66,.10); border-radius: 999px; }
     .article-page .cover {
-      width: 100%; max-height: 480px; object-fit: cover;
+      width: 100%; max-height: 460px; object-fit: cover;
       border-radius: 16px; margin: 0 0 42px;
       border: 1px solid var(--line-strong);
     }
-    .article-body {
-      max-width: 760px; margin: 0 auto;
-      font-size: 18px; line-height: 1.75;
-      color: var(--ink);
-    }
-    .article-body p { margin: 0 0 22px; }
-    .article-body h2, .article-body h3 { font-weight: 700; letter-spacing: -.01em; margin: 42px 0 16px; line-height: 1.25; }
-    .article-body h2 { font-size: 28px; } .article-body h3 { font-size: 22px; }
+    .article-body { font-size: 18px; line-height: 1.75; color: var(--ink); }
+    .article-body > * + * { margin-top: 22px; }
+    .article-body p { margin: 0; }
+    .article-body h2, .article-body h3, .article-body h4 { font-weight: 700; letter-spacing: -.01em; margin: 42px 0 14px; line-height: 1.25; }
+    .article-body h2 { font-size: 28px; }
+    .article-body h3 { font-size: 22px; }
+    .article-body h4 { font-size: 19px; }
     .article-body a { color: var(--accent); border-bottom: 1px solid rgba(201,100,66,.3); }
     .article-body a:hover { border-bottom-color: var(--accent); }
-    .article-body ul, .article-body ol { padding-left: 22px; margin: 0 0 22px; }
+    .article-body ul, .article-body ol { padding-left: 22px; margin: 0; }
     .article-body li { margin-bottom: 10px; }
-    .article-body img { max-width: 100%; height: auto; margin: 22px 0; border-radius: 10px; }
+    .article-body img { max-width: 100%; height: auto; margin: 22px 0; border-radius: 10px; display: block; }
     .article-body blockquote { border-left: 3px solid var(--accent); padding: 8px 0 8px 22px; margin: 30px 0; font-style: italic; color: var(--ink-dim); }
-    .article-source {
-      max-width: 760px; margin: 56px auto 0;
-      padding-top: 28px; border-top: 1px solid var(--line);
-      font-size: 13px; color: var(--muted);
+    .article-body strong { color: var(--ink); font-weight: 700; }
+
+    /* PDF embed */
+    .pdf-embed { margin: 36px 0; background: var(--bg-2); border: 1px solid var(--line-strong); border-radius: 14px; overflow: hidden; box-shadow: var(--shadow); }
+    .pdf-embed iframe { width: 100%; height: clamp(540px, 80vh, 880px); border: 0; display: block; background: #fff; }
+    .pdf-embed .pdf-download { display: block; padding: 14px 22px; background: var(--ink); color: #fff !important; border: 0; border-bottom: 0; text-align: center; font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; transition: background .2s; }
+    .pdf-embed .pdf-download:hover { background: var(--accent); border-bottom: 0; }
+
+    .article-source { margin: 56px 0 0; padding-top: 28px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+    .article-source a { color: var(--accent); border-bottom: 1px solid rgba(201,100,66,.3); }
+    .article-nav { margin-top: 60px; padding-top: 28px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .article-nav a { font-size: 13px; color: var(--ink-dim); transition: color .2s; max-width: 45%; }
+    .article-nav a:hover { color: var(--accent); }
+    .article-nav .dir { display: block; font-size: 10px; color: var(--accent); margin-bottom: 4px; font-family: "JetBrains Mono", monospace; letter-spacing: .12em; text-transform: uppercase; }
+    .article-nav .ttl { display: block; font-size: 14px; color: var(--ink); font-weight: 600; line-height: 1.3; }
+    .article-nav .next { text-align: right; }
+
+    @media (max-width: 720px) {
+      .article-page { padding: 40px 0 80px; }
+      .pdf-embed iframe { height: clamp(380px, 70vh, 600px); }
+      .article-body { font-size: 16.5px; }
     }
-    .article-source a { color: var(--accent); }
   </style>
 </head>
 <body>
@@ -959,94 +975,26 @@
       <div class="meta"><span class="cat">Strategic Insights</span><span class="date">October 22, 2025</span></div>
       <h1 class="article-h1">Engaging the Diaspora: Building the First Palestinian State of Mind</h1>
       <img src="../assets/articles/engaging-the-diaspora-building-the-first-palestinian-state-of-mind.jpg" alt="" class="cover" />
-      <div class="article-body">
-				<div class="elementor-widget-container">
+      <div class="article-body"><div>
 					<p>By Hisham Jabi, Founder &amp; CEO</p>
-<p id="ember259" class="ember-view reader-text-block__paragraph">What is missing in all the <em>“Gaza Day After”</em> plans?</p>
-<p id="ember261" class="ember-view reader-text-block__paragraph">As one of the many members of the Palestinian diaspora living in Washington, D.C., I follow Al Jazeera, CNN, and countless updates each morning about the situation in Gaza — watching, praying, calling relatives, and hoping for the best. But I often ask myself: <em>Where does all this energy, pain, and resilience go?</em></p>
-<p id="ember262" class="ember-view reader-text-block__paragraph">We Palestinians are a nation defined not only by our land but by our identity — a people known for resilience, education, and an unshakable belief in justice and peace. Ours is a diverse and inclusive society: <strong>Muslims and Christians living side by side</strong>, shaping a shared national story of perseverance and hope. The Christian community in Palestine — one of the oldest in the world — has always been integral to our social, economic, and cultural life, building schools, hospitals, and enterprises that have strengthened the nation’s foundations.</p>
-<p id="ember263" class="ember-view reader-text-block__paragraph">Like any other nation, we have diverse opinions on how to achieve independence, stability and prosperity. Yet, one truth remains: the future of Palestine must be built on free and fair election, the rule of law, opportunities for all, and the extraordinary potential of its people — at home and across the world.</p>
-<p id="ember264" class="ember-view reader-text-block__paragraph">Today, more than <strong>5.5 million Palestinians</strong> live in the West Bank and Gaza. Despite decades of conflict, Palestine maintains one of the most educated populations in the Arab world, with a literacy rate exceeding <strong>97%</strong>. Yet youth unemployment remains above <strong>40%</strong>, among the highest globally, and the formal private sector continues to struggle under restrictions and limited access to regional and global markets.</p>
-<p id="ember265" class="ember-view reader-text-block__paragraph">Meanwhile, another <strong>seven million Palestinians</strong> live abroad — in the Gulf, Europe, the United States, and Latin America. Many are engineers, entrepreneurs, investors, and academics leading successful ventures across industries. Yet, mechanisms to connect their expertise and resources with the homeland remain fragmented or symbolic. Every “Gaza Day After” plan I have reviewed focuses heavily on donor funding and humanitarian assistance — both vital, but neither sufficient to build a sustainable state.</p>
-<p id="ember266" class="ember-view reader-text-block__paragraph">The question we must ask is this: <em>How do we mobilize the Palestinian diaspora — its knowledge, capital, and innovation — to build the first state of Palestine?</em></p>
-<p id="ember267" class="ember-view reader-text-block__paragraph">The recognition of Palestine by over <strong>150 countries</strong> is not accidental. It reflects decades of deliberate international acknowledgment that Palestinians — Muslim and Christian alike — deserve self-determination and the right to build their own institutions. But statehood is not only about borders; it is about governance, unity, and economic independence.</p>
-<p id="ember268" class="ember-view reader-text-block__paragraph">Other small nations have faced similar crossroads and thrived. <strong>Singapore</strong> transformed from a struggling port into a global innovation hub through visionary leadership that invested in education, technology, and the rule of law. <strong>Lithuania</strong>, emerging from decades of transition, positioned itself as an IT powerhouse through talent development and digital governance. These examples prove that the size of a nation does not determine its strength — leadership, integrity, and coherence do.</p>
-<p id="ember269" class="ember-view reader-text-block__paragraph">Perhaps Palestine’s path forward lies not only in <em>reconstruction</em> but in <em>reconnection</em>: between homeland and diaspora, between public institutions and private enterprise, between our youth and the future they deserve. Across Gaza, Nablus, Bethlehem, Ramallah, and Jerusalem, and throughout Chicago, Dubai, Santiago, and London — we have thousands of talented young Palestinians ready to contribute. They just need a channel for their ideas, energy, and expertise.</p>
-<p id="ember270" class="ember-view reader-text-block__paragraph">That is why we established the <strong>Palestine Economic Forum</strong>: a global platform to connect Palestinian professionals, investors, and reformers across the world. Our vision is to transform the energy, network, financial resources, and credibility of the diaspora into practical partnerships with the Palestinian private sector — fostering innovation, job creation, and long-term economic independence.</p>
-<p id="ember271" class="ember-view reader-text-block__paragraph">The dream of Palestine is not only about reclaiming land; it is about building a nation rooted in its people’s minds, skills, and shared values — a nation where faith, education, and enterprise coexist to shape a common destiny.</p>
-<p id="ember272" class="ember-view reader-text-block__paragraph">Perhaps the first Palestinian state we can all help build is not only one of borders, but one of <em>mind and purpose</em>: defined by collaboration, dignity, and an unshakable belief that we can thrive through our own talent.</p>
-<p id="ember273" class="ember-view reader-text-block__paragraph">The dream is not far — it is waiting for all of us, Muslims and Christians alike, to make it real.</p>
+<p>What is missing in all the <em>“Gaza Day After”</em> plans?</p>
+<p>As one of the many members of the Palestinian diaspora living in Washington, D.C., I follow Al Jazeera, CNN, and countless updates each morning about the situation in Gaza — watching, praying, calling relatives, and hoping for the best. But I often ask myself: <em>Where does all this energy, pain, and resilience go?</em></p>
+<p>We Palestinians are a nation defined not only by our land but by our identity — a people known for resilience, education, and an unshakable belief in justice and peace. Ours is a diverse and inclusive society: <strong>Muslims and Christians living side by side</strong>, shaping a shared national story of perseverance and hope. The Christian community in Palestine — one of the oldest in the world — has always been integral to our social, economic, and cultural life, building schools, hospitals, and enterprises that have strengthened the nation’s foundations.</p>
+<p>Like any other nation, we have diverse opinions on how to achieve independence, stability and prosperity. Yet, one truth remains: the future of Palestine must be built on free and fair election, the rule of law, opportunities for all, and the extraordinary potential of its people — at home and across the world.</p>
+<p>Today, more than <strong>5.5 million Palestinians</strong> live in the West Bank and Gaza. Despite decades of conflict, Palestine maintains one of the most educated populations in the Arab world, with a literacy rate exceeding <strong>97%</strong>. Yet youth unemployment remains above <strong>40%</strong>, among the highest globally, and the formal private sector continues to struggle under restrictions and limited access to regional and global markets.</p>
+<p>Meanwhile, another <strong>seven million Palestinians</strong> live abroad — in the Gulf, Europe, the United States, and Latin America. Many are engineers, entrepreneurs, investors, and academics leading successful ventures across industries. Yet, mechanisms to connect their expertise and resources with the homeland remain fragmented or symbolic. Every “Gaza Day After” plan I have reviewed focuses heavily on donor funding and humanitarian assistance — both vital, but neither sufficient to build a sustainable state.</p>
+<p>The question we must ask is this: <em>How do we mobilize the Palestinian diaspora — its knowledge, capital, and innovation — to build the first state of Palestine?</em></p>
+<p>The recognition of Palestine by over <strong>150 countries</strong> is not accidental. It reflects decades of deliberate international acknowledgment that Palestinians — Muslim and Christian alike — deserve self-determination and the right to build their own institutions. But statehood is not only about borders; it is about governance, unity, and economic independence.</p>
+<p>Other small nations have faced similar crossroads and thrived. <strong>Singapore</strong> transformed from a struggling port into a global innovation hub through visionary leadership that invested in education, technology, and the rule of law. <strong>Lithuania</strong>, emerging from decades of transition, positioned itself as an IT powerhouse through talent development and digital governance. These examples prove that the size of a nation does not determine its strength — leadership, integrity, and coherence do.</p>
+<p>Perhaps Palestine’s path forward lies not only in <em>reconstruction</em> but in <em>reconnection</em>: between homeland and diaspora, between public institutions and private enterprise, between our youth and the future they deserve. Across Gaza, Nablus, Bethlehem, Ramallah, and Jerusalem, and throughout Chicago, Dubai, Santiago, and London — we have thousands of talented young Palestinians ready to contribute. They just need a channel for their ideas, energy, and expertise.</p>
+<p>That is why we established the <strong>Palestine Economic Forum</strong>: a global platform to connect Palestinian professionals, investors, and reformers across the world. Our vision is to transform the energy, network, financial resources, and credibility of the diaspora into practical partnerships with the Palestinian private sector — fostering innovation, job creation, and long-term economic independence.</p>
+<p>The dream of Palestine is not only about reclaiming land; it is about building a nation rooted in its people’s minds, skills, and shared values — a nation where faith, education, and enterprise coexist to shape a common destiny.</p>
+<p>Perhaps the first Palestinian state we can all help build is not only one of borders, but one of <em>mind and purpose</em>: defined by collaboration, dignity, and an unshakable belief that we can thrive through our own talent.</p>
+<p>The dream is not far — it is waiting for all of us, Muslims and Christians alike, to make it real.</p>
 				</div>
-				</div>
-				<div class="elementor-element elementor-element-1b3e6866 elementor-widget elementor-widget-post-navigation" data-id="1b3e6866" data-element_type="widget" data-e-type="widget" data-widget_type="post-navigation.default">
-				<div class="elementor-widget-container">
-							<div class="elementor-post-navigation" role="navigation" aria-label="Post Navigation">
-			<div class="elementor-post-navigation__prev elementor-post-navigation__link">
-				<a href="https://jabiconsulting.com/mena-monthly-pulse-volume-8/" rel="prev"><span class="elementor-post-navigation__link__prev"><span class="post-navigation__prev--label">Previous</span></span></a>			</div>
-						<div class="elementor-post-navigation__next elementor-post-navigation__link">
-				<a href="https://jabiconsulting.com/mena-monthly-pulse-volume-9/" rel="next"><span class="elementor-post-navigation__link__next"><span class="post-navigation__next--label">Next</span></span></a>			</div>
-		</div>
-						</div>
-				</div>
-		<div class="elementor-element elementor-element-5f36294f e-con-full e-flex e-con e-child" data-id="5f36294f" data-element_type="container" data-e-type="container">
-				<div class="elementor-element elementor-element-71152fa8 elementor-widget elementor-widget-heading" data-id="71152fa8" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
-				<div class="elementor-widget-container">
-					<span class="elementor-heading-title elementor-size-default">Share the Post:</span>				</div>
-				</div>
-				<div class="elementor-element elementor-element-14a35fd8 elementor-share-buttons--view-icon elementor-share-buttons--skin-minimal elementor-share-buttons--color-custom elementor-share-buttons--shape-square elementor-grid-0 elementor-widget elementor-widget-share-buttons" data-id="14a35fd8" data-element_type="widget" data-e-type="widget" data-widget_type="share-buttons.default">
-				<div class="elementor-widget-container">
-							<div class="elementor-grid" role="list">
-								<div class="elementor-grid-item" role="listitem">
-						<div class="elementor-share-btn elementor-share-btn_facebook" role="button" tabindex="0" aria-label="Share on facebook">
-															<span class="elementor-share-btn__icon">
-								<i class="fab fa-facebook" aria-hidden="true"></i>							</span>
-																				</div>
-					</div>
-									<div class="elementor-grid-item" role="listitem">
-						<div class="elementor-share-btn elementor-share-btn_twitter" role="button" tabindex="0" aria-label="Share on twitter">
-															<span class="elementor-share-btn__icon">
-								<i class="fab fa-twitter" aria-hidden="true"></i>							</span>
-																				</div>
-					</div>
-									<div class="elementor-grid-item" role="listitem">
-						<div class="elementor-share-btn elementor-share-btn_linkedin" role="button" tabindex="0" aria-label="Share on linkedin">
-															<span class="elementor-share-btn__icon">
-								<i class="fab fa-linkedin" aria-hidden="true"></i>							</span>
-																				</div>
-					</div>
-						</div>
-						</div>
-				</div>
-				</div>
-					</div>
-				</div>
-		<div class="elementor-element elementor-element-9af363d e-flex e-con-boxed e-con e-parent" data-id="9af363d" data-element_type="container" data-e-type="container">
-					<div class="e-con-inner">
-				<div class="elementor-element elementor-element-3d8e0f7c elementor-widget elementor-widget-heading" data-id="3d8e0f7c" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
-				<div class="elementor-widget-container">
-					<h2 class="elementor-heading-title elementor-size-default">Related Posts</h2>				</div>
-				</div>
-				<div class="elementor-element elementor-element-56c82c5b elementor-posts__hover-none elementor-grid-2 elementor-grid-tablet-2 elementor-grid-mobile-1 elementor-posts--thumbnail-top elementor-widget elementor-widget-posts" data-id="56c82c5b" data-element_type="widget" data-e-type="widget" data-settings="{&quot;cards_row_gap&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:80,&quot;sizes&quot;:[]},&quot;cards_row_gap_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:71,&quot;sizes&quot;:[]},&quot;cards_row_gap_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:30,&quot;sizes&quot;:[]},&quot;cards_columns&quot;:&quot;2&quot;,&quot;cards_columns_tablet&quot;:&quot;2&quot;,&quot;cards_columns_mobile&quot;:&quot;1&quot;}" data-widget_type="posts.cards">
-				<div class="elementor-widget-container">
-							<div class="elementor-posts-container elementor-posts elementor-posts--skin-cards elementor-grid" role="list">
-				<article class="elementor-post elementor-grid-item post-7238 post type-post status-publish format-standard has-post-thumbnail hentry category-press-releases" role="listitem">
-			<div class="elementor-post__card">
-				<a class="elementor-post__thumbnail__link" href="https://jabiconsulting.com/mena-monthly-pulse-volume-4-2026/" tabindex="-1" ><div class="elementor-post__thumbnail"><img width="1254" height="836" src="https://jabiconsulting.com/wp-content/uploads/2026/04/qtq80-sbAKZa.jpeg" class="attachment-full size-full wp-image-7235" alt="" decoding="async" srcset="https://jabiconsulting.com/wp-content/uploads/2026/04/qtq80-sbAKZa.jpeg 1254w, https://jabiconsulting.com/wp-content/uploads/2026/04/qtq80-sbAKZa-300x200.jpeg 300w, https://jabiconsulting.com/wp-content/uploads/2026/04/qtq80-sbAKZa-1024x683.jpeg 1024w, https://jabiconsulting.com/wp-content/uploads/2026/04/qtq80-sbAKZa-768x512.jpeg 768w" sizes="(max-width: 1254px) 100vw, 1254px" /></div></a>
-				<div class="elementor-post__text">
-				<h4 class="elementor-post__title">
-			<a href="https://jabiconsulting.com/mena-monthly-pulse-volume-4-2026/" >
-				MENA Monthly Pulse Volume 4 (2026)			</a>
-		</h4>
-				<div class="elementor-post__excerpt">
-			<p>The Jabi Consulting team is excited to share the fourth edition of 2026 of the MENA Monthly Pulse* – a</p>
-		</div>
-		
-		<a class="elementor-post__read-more" href="https://jabiconsulting.com/mena-monthly-pulse-volume-4-2026/" aria-label="Read more about MENA Monthly Pulse Volume 4 (2026)" tabindex="-1" >
-			Read More		</a>
-
-				</div>
-					</div>
+				</div></div>
       <div class="article-source">Originally published at <a href="https://jabiconsulting.com/engaging-the-diaspora-building-the-first-palestinian-state-of-mind/" target="_blank" rel="noopener">jabiconsulting.com →</a></div>
+      <div class="article-nav"><a class="prev" href="mena-monthly-pulse-volume-8.html"><span class="dir">← Older</span><span class="ttl">MENA Monthly Pulse Volume 8</span></a><a class="next" href="mena-monthly-pulse-volume-9.html"><span class="dir">Newer →</span><span class="ttl">MENA Monthly Pulse Volume 9</span></a></div>
     </div>
   </main>
   <footer>

@@ -878,56 +878,72 @@
   <title>The MENA Youth Employment Time Bomb — And How to Defuse It at Scale — Jabi Consulting</title>
   <link rel="canonical" href="../insights/the-mena-youth-employment-time-bomb-and-how-to-defuse-it-at-scale.html" />
   <meta property="og:title" content="The MENA Youth Employment Time Bomb — And How to Defuse It at Scale" />
-  <meta property="og:description" content="The MENA Youth Employment Time Bomb — And How to Defuse It at Scale — Jabi Consulting insights." />
   <meta property="og:image" content="../assets/articles/the-mena-youth-employment-time-bomb-and-how-to-defuse-it-at-scale.jpg" />
   <style>
     .article-page { padding: 60px 0 100px; }
+    .article-page .container { max-width: 880px; }
     .article-back {
       display: inline-flex; align-items: center; gap: 6px;
       font-size: 13px; color: var(--ink-dim);
-      margin-bottom: 28px;
+      margin-bottom: 32px;
       text-transform: uppercase; letter-spacing: .12em;
       font-family: "JetBrains Mono", monospace;
       transition: color .2s;
     }
     .article-back:hover { color: var(--accent); }
     .article-page h1.article-h1 {
-      font-size: clamp(32px, 4.2vw, 54px);
+      font-size: clamp(30px, 4vw, 50px);
       line-height: 1.1; letter-spacing: -.02em;
-      font-weight: 800; max-width: 900px; margin: 0 0 18px;
+      font-weight: 800; margin: 0 0 18px;
     }
     .article-page .meta {
       font-family: "JetBrains Mono", monospace;
       font-size: 12px; letter-spacing: .12em;
       color: var(--ink-dim); margin-bottom: 32px;
       text-transform: uppercase;
+      display: flex; flex-wrap: wrap; gap: 12px; align-items: center;
     }
-    .article-page .meta .cat { color: var(--accent); margin-right: 14px; padding: 4px 12px; background: rgba(201,100,66,.10); border-radius: 999px; }
+    .article-page .meta .cat { color: var(--accent); padding: 5px 14px; background: rgba(201,100,66,.10); border-radius: 999px; }
     .article-page .cover {
-      width: 100%; max-height: 480px; object-fit: cover;
+      width: 100%; max-height: 460px; object-fit: cover;
       border-radius: 16px; margin: 0 0 42px;
       border: 1px solid var(--line-strong);
     }
-    .article-body {
-      max-width: 760px; margin: 0 auto;
-      font-size: 18px; line-height: 1.75;
-      color: var(--ink);
-    }
-    .article-body p { margin: 0 0 22px; }
-    .article-body h2, .article-body h3 { font-weight: 700; letter-spacing: -.01em; margin: 42px 0 16px; line-height: 1.25; }
-    .article-body h2 { font-size: 28px; } .article-body h3 { font-size: 22px; }
+    .article-body { font-size: 18px; line-height: 1.75; color: var(--ink); }
+    .article-body > * + * { margin-top: 22px; }
+    .article-body p { margin: 0; }
+    .article-body h2, .article-body h3, .article-body h4 { font-weight: 700; letter-spacing: -.01em; margin: 42px 0 14px; line-height: 1.25; }
+    .article-body h2 { font-size: 28px; }
+    .article-body h3 { font-size: 22px; }
+    .article-body h4 { font-size: 19px; }
     .article-body a { color: var(--accent); border-bottom: 1px solid rgba(201,100,66,.3); }
     .article-body a:hover { border-bottom-color: var(--accent); }
-    .article-body ul, .article-body ol { padding-left: 22px; margin: 0 0 22px; }
+    .article-body ul, .article-body ol { padding-left: 22px; margin: 0; }
     .article-body li { margin-bottom: 10px; }
-    .article-body img { max-width: 100%; height: auto; margin: 22px 0; border-radius: 10px; }
+    .article-body img { max-width: 100%; height: auto; margin: 22px 0; border-radius: 10px; display: block; }
     .article-body blockquote { border-left: 3px solid var(--accent); padding: 8px 0 8px 22px; margin: 30px 0; font-style: italic; color: var(--ink-dim); }
-    .article-source {
-      max-width: 760px; margin: 56px auto 0;
-      padding-top: 28px; border-top: 1px solid var(--line);
-      font-size: 13px; color: var(--muted);
+    .article-body strong { color: var(--ink); font-weight: 700; }
+
+    /* PDF embed */
+    .pdf-embed { margin: 36px 0; background: var(--bg-2); border: 1px solid var(--line-strong); border-radius: 14px; overflow: hidden; box-shadow: var(--shadow); }
+    .pdf-embed iframe { width: 100%; height: clamp(540px, 80vh, 880px); border: 0; display: block; background: #fff; }
+    .pdf-embed .pdf-download { display: block; padding: 14px 22px; background: var(--ink); color: #fff !important; border: 0; border-bottom: 0; text-align: center; font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; transition: background .2s; }
+    .pdf-embed .pdf-download:hover { background: var(--accent); border-bottom: 0; }
+
+    .article-source { margin: 56px 0 0; padding-top: 28px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+    .article-source a { color: var(--accent); border-bottom: 1px solid rgba(201,100,66,.3); }
+    .article-nav { margin-top: 60px; padding-top: 28px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .article-nav a { font-size: 13px; color: var(--ink-dim); transition: color .2s; max-width: 45%; }
+    .article-nav a:hover { color: var(--accent); }
+    .article-nav .dir { display: block; font-size: 10px; color: var(--accent); margin-bottom: 4px; font-family: "JetBrains Mono", monospace; letter-spacing: .12em; text-transform: uppercase; }
+    .article-nav .ttl { display: block; font-size: 14px; color: var(--ink); font-weight: 600; line-height: 1.3; }
+    .article-nav .next { text-align: right; }
+
+    @media (max-width: 720px) {
+      .article-page { padding: 40px 0 80px; }
+      .pdf-embed iframe { height: clamp(380px, 70vh, 600px); }
+      .article-body { font-size: 16.5px; }
     }
-    .article-source a { color: var(--accent); }
   </style>
 </head>
 <body>
@@ -959,115 +975,47 @@
       <div class="meta"><span class="cat">Youth &amp; Labor</span><span class="date">January 26, 2026</span></div>
       <h1 class="article-h1">The MENA Youth Employment Time Bomb — And How to Defuse It at Scale</h1>
       <img src="../assets/articles/the-mena-youth-employment-time-bomb-and-how-to-defuse-it-at-scale.jpg" alt="" class="cover" />
-      <div class="article-body">
-				<div class="elementor-widget-container">
-					<p id="ember456" class="ember-view reader-text-block__paragraph">By Hisham Jabi, CEO Jabi Consulting</p>
-<p id="ember457" class="ember-view reader-text-block__paragraph">Over the past two years, I have traveled extensively across the Middle East and North Africa—from the Gulf to Cairo, Ramallah, and Amman. In every city, in every meeting, and in every university hall, I encountered the same reality: a vast generation of educated, capable, digitally connected young men and women who are locked out of the economy, deeply frustrated, and increasingly detached from public institutions and from any credible promise of social mobility.</p>
-<p id="ember458" class="ember-view reader-text-block__paragraph">The data confirms what one sees on the ground. According to the <strong>World Bank and the International Labour Organization (ILO)</strong>, the Middle East and North Africa has the <strong>highest youth unemployment rate in the world</strong>, at around <strong>25–30% on average</strong>, compared to a global average of about 13%. In some contexts the numbers are far more severe: youth unemployment exceeds <strong>35% in Jordan and Tunisia</strong>, and in <strong>Gaza it is above 60–70%</strong>, one of the highest rates recorded anywhere (World Bank, ILO, PCBS).</p>
-<p id="ember459" class="ember-view reader-text-block__paragraph">At the same time, the region is experiencing one of the largest youth bulges globally. More than <strong>60% of the population in MENA is under the age of 30</strong>, and roughly <strong>one in three people is between 15 and 29</strong> (UN DESA, World Bank). Every year, <strong>over 5 million young people</strong> enter MENA labor markets, while the formal economy creates only a fraction of the jobs needed to absorb them (World Bank, 2023).</p>
-<p id="ember460" class="ember-view reader-text-block__paragraph">This is not a marginal social issue. It is the central economic, political, and security challenge of the region.</p>
-<p id="ember461" class="ember-view reader-text-block__paragraph">And yet, despite <strong>tens of billions of dollars</strong> spent over the past two decades by governments and donors on training programs, entrepreneurship schemes, SME finance, and employability projects, the aggregate indicators have barely moved (World Bank, IEG; OECD MENA Outlook). The uncomfortable truth is that the region has been trying to solve a <strong>system-level crisis with project-level tools</strong>.</p>
-<p id="ember462" class="ember-view reader-text-block__paragraph">Youth employment is not like health or education. In those sectors, governments already operate large-scale delivery systems. Scaling is often about expanding coverage or improving quality. Youth employment, by contrast, sits at the intersection of <strong>education systems, labor markets, private sector demand, finance, technology platforms, and social norms</strong>. No single ministry truly owns it. No integrated delivery system exists for it. As a result, most interventions remain fragmented, small, and structurally incapable of reaching the millions who need opportunity.</p>
-<p id="ember463" class="ember-view reader-text-block__paragraph">This is why training alone does not work. The ILO estimates that <strong>more than 40% of employed youth in MENA work in the informal sector</strong>, often in low-productivity, low-wage, and unstable jobs. The World Bank has repeatedly shown that <strong>skills mismatches</strong>, not just lack of education, are one of the binding constraints to employment in the region. At the same time, surveys show historically low levels of <strong>trust in institutions and belief in upward mobility</strong> among Arab youth (Arab Barometer, OECD).</p>
-<p id="ember464" class="ember-view reader-text-block__paragraph">A young person without relevant skills cannot find a job.</p>
-<p id="ember465" class="ember-view reader-text-block__paragraph">A young person without mental resilience and social stability cannot keep a job.</p>
-<p id="ember466" class="ember-view reader-text-block__paragraph">And a young person without hope will not even try.</p>
-<p id="ember467" class="ember-view reader-text-block__paragraph">If the region is serious, it must start by asking a different question: not how do we place 50,000 or 100,000 young people into jobs, but how do we build systems capable of employing <strong>10 million young men and women by 2035</strong>?</p>
-<p id="ember468" class="ember-view reader-text-block__paragraph">This question is not unrealistic. It is proportional to the challenge. The World Bank estimates that MENA must create <strong>over 300 million jobs by 2050</strong> just to keep employment rates constant, given demographic trends.</p>
-<p id="ember469" class="ember-view reader-text-block__paragraph">This shift in ambition forces a shift in mindset: away from pilots and toward platforms, away from projects and toward pipelines, away from fragmentation and toward integration.</p>
-<p id="ember470" class="ember-view reader-text-block__paragraph">The urgency is even greater because the region is living through a historic paradox. On one hand, <strong>GCC countries are investing hundreds of billions of dollars</strong> in artificial intelligence, data centers, cloud infrastructure, logistics, advanced manufacturing, and digital government (Saudi Vision 2030, UAE digital economy strategy, Qatar National Vision). On the other hand, the broader MENA region is sitting on a massive pool of unemployed and underutilized human capital—millions of graduates and semi-skilled youth.</p>
-<p id="ember471" class="ember-view reader-text-block__paragraph">According to PwC and McKinsey, the AI and digital economy alone could contribute <strong>$300–500 billion to GCC GDP by 2030</strong>. Yet the region still imports much of the human capital needed to run these systems, while neighboring countries export unemployment.</p>
-<p id="ember472" class="ember-view reader-text-block__paragraph">This is not a market failure alone. It is an institutional and policy failure.</p>
-<p id="ember473" class="ember-view reader-text-block__paragraph">One of the deepest structural problems is that almost no youth employment program is designed for scale from the beginning. Most are conceived as high-quality, high-touch, expensive pilots. Only later does someone ask whether the model can be scaled nationally. By then, the cost structure is wrong, the delivery mechanism is too complex, and the institutional ownership is unclear. The World Bank’s Independent Evaluation Group has repeatedly highlighted this “<strong>pilot trap</strong>” in social and labor market programs.</p>
-<p id="ember474" class="ember-view reader-text-block__paragraph">Scale is not something that happens by inspiration or replication. It must be engineered: through <strong>simple models, low unit costs, standardized processes, digital delivery, and strong institutional anchoring</strong>.</p>
-<p id="ember475" class="ember-view reader-text-block__paragraph">The irony is that the region already has one of the key ingredients: extraordinary digital penetration among youth. According to GSMA and the World Bank, smartphone penetration among young people in MENA exceeds <strong>80% in many countries</strong>. Social media usage is among the highest in the world. Yet this is barely used for <strong>mass, demand-driven, job-linked upskilling</strong>.</p>
-<p id="ember476" class="ember-view reader-text-block__paragraph">Instead of thousands of trainees in classrooms, the region should be thinking in terms of <strong>hundreds of thousands moving through standardized, Arabic-first, modular training pipelines</strong>, directly linked to real labor demand—especially in data services, AI support roles, digital operations, and remote service delivery.</p>
-<p id="ember477" class="ember-view reader-text-block__paragraph">In effect, youth employment must be treated as a <strong>digital supply chain</strong>.</p>
-<p id="ember478" class="ember-view reader-text-block__paragraph">Another structural mistake is the confusion between innovation and scale. The OECD and World Bank both emphasize that <strong>innovation and system-wide delivery require different institutions, incentives, and skills</strong>. MENA is not short of pilots. It is short of mechanisms to take what works and industrialize it.</p>
-<p id="ember479" class="ember-view reader-text-block__paragraph">That requires political decisions. It requires ministries of finance, planning, and labor to stop seeing youth employment as a donor-funded social program and start seeing it as <strong>core economic infrastructure</strong>.</p>
-<p id="ember480" class="ember-view reader-text-block__paragraph">It also requires ruthless simplification. Most current youth programs try to do everything at once: skills, life skills, finance, mentoring, psychosocial support, incubation, placement. All of these are valuable. Together, they become unscalable. At population scale, success comes not from adding components but from subtracting complexity.</p>
-<p id="ember481" class="ember-view reader-text-block__paragraph">The right question is not “what is the perfect program?” but “what is the simplest intervention that can move millions?”</p>
-<p id="ember482" class="ember-view reader-text-block__paragraph">Consider a concrete example. If GCC economies are projected to need <strong>millions of mid-level digital and service workers</strong> over the next decade (PwC, McKinsey), then the region should be building <strong>mass pipelines</strong> that take young people with different education levels and move them, in three to six months, into these roles through tiered skills pathways, language training, and direct job routing. This is not social policy. It is workforce supply chain economics.</p>
-<p id="ember483" class="ember-view reader-text-block__paragraph">But even the best technical design will fail without regional ownership. Employment at MENA scale cannot be built country by country. It requires coordination between labor-sending and labor-receiving countries, policy alignment, financing mechanisms, and partial frameworks for cross-border (including virtual) labor mobility.</p>
-<p id="ember484" class="ember-view reader-text-block__paragraph">This is where large institutions must play a different role. The <strong>World Bank, ILO, UNDP, Islamic Development Bank, and regional funds</strong> are uniquely positioned to legitimize, finance, and de-risk scale. But this requires a shift from <strong>project logic to platform logic</strong>.</p>
-<p id="ember485" class="ember-view reader-text-block__paragraph">The region does not lack money.</p>
-<p id="ember486" class="ember-view reader-text-block__paragraph">It does not lack young people.</p>
-<p id="ember487" class="ember-view reader-text-block__paragraph">It lacks <strong>systems</strong>.</p>
-<p id="ember488" class="ember-view reader-text-block__paragraph">The strategic choice is becoming unavoidable. The Middle East and North Africa can continue to manage youth unemployment through thousands of small, well-intentioned, disconnected programs. Or it can decide to build<strong>two or three massive employment engines</strong> that operate at population scale.</p>
-<p id="ember489" class="ember-view reader-text-block__paragraph">One approach manages the problem.</p>
-<p id="ember490" class="ember-view reader-text-block__paragraph">The other changes the trajectory of the region.</p>
-<p id="ember491" class="ember-view reader-text-block__paragraph">If MENA gets youth employment right, growth, stability, and social cohesion become achievable. If it does not, no amount of infrastructure, AI, or capital investment will compensate for a generation that has lost its stake in the future.</p>
+      <div class="article-body"><div>
+					<p>By Hisham Jabi, CEO Jabi Consulting</p>
+<p>Over the past two years, I have traveled extensively across the Middle East and North Africa—from the Gulf to Cairo, Ramallah, and Amman. In every city, in every meeting, and in every university hall, I encountered the same reality: a vast generation of educated, capable, digitally connected young men and women who are locked out of the economy, deeply frustrated, and increasingly detached from public institutions and from any credible promise of social mobility.</p>
+<p>The data confirms what one sees on the ground. According to the <strong>World Bank and the International Labour Organization (ILO)</strong>, the Middle East and North Africa has the <strong>highest youth unemployment rate in the world</strong>, at around <strong>25–30% on average</strong>, compared to a global average of about 13%. In some contexts the numbers are far more severe: youth unemployment exceeds <strong>35% in Jordan and Tunisia</strong>, and in <strong>Gaza it is above 60–70%</strong>, one of the highest rates recorded anywhere (World Bank, ILO, PCBS).</p>
+<p>At the same time, the region is experiencing one of the largest youth bulges globally. More than <strong>60% of the population in MENA is under the age of 30</strong>, and roughly <strong>one in three people is between 15 and 29</strong> (UN DESA, World Bank). Every year, <strong>over 5 million young people</strong> enter MENA labor markets, while the formal economy creates only a fraction of the jobs needed to absorb them (World Bank, 2023).</p>
+<p>This is not a marginal social issue. It is the central economic, political, and security challenge of the region.</p>
+<p>And yet, despite <strong>tens of billions of dollars</strong> spent over the past two decades by governments and donors on training programs, entrepreneurship schemes, SME finance, and employability projects, the aggregate indicators have barely moved (World Bank, IEG; OECD MENA Outlook). The uncomfortable truth is that the region has been trying to solve a <strong>system-level crisis with project-level tools</strong>.</p>
+<p>Youth employment is not like health or education. In those sectors, governments already operate large-scale delivery systems. Scaling is often about expanding coverage or improving quality. Youth employment, by contrast, sits at the intersection of <strong>education systems, labor markets, private sector demand, finance, technology platforms, and social norms</strong>. No single ministry truly owns it. No integrated delivery system exists for it. As a result, most interventions remain fragmented, small, and structurally incapable of reaching the millions who need opportunity.</p>
+<p>This is why training alone does not work. The ILO estimates that <strong>more than 40% of employed youth in MENA work in the informal sector</strong>, often in low-productivity, low-wage, and unstable jobs. The World Bank has repeatedly shown that <strong>skills mismatches</strong>, not just lack of education, are one of the binding constraints to employment in the region. At the same time, surveys show historically low levels of <strong>trust in institutions and belief in upward mobility</strong> among Arab youth (Arab Barometer, OECD).</p>
+<p>A young person without relevant skills cannot find a job.</p>
+<p>A young person without mental resilience and social stability cannot keep a job.</p>
+<p>And a young person without hope will not even try.</p>
+<p>If the region is serious, it must start by asking a different question: not how do we place 50,000 or 100,000 young people into jobs, but how do we build systems capable of employing <strong>10 million young men and women by 2035</strong>?</p>
+<p>This question is not unrealistic. It is proportional to the challenge. The World Bank estimates that MENA must create <strong>over 300 million jobs by 2050</strong> just to keep employment rates constant, given demographic trends.</p>
+<p>This shift in ambition forces a shift in mindset: away from pilots and toward platforms, away from projects and toward pipelines, away from fragmentation and toward integration.</p>
+<p>The urgency is even greater because the region is living through a historic paradox. On one hand, <strong>GCC countries are investing hundreds of billions of dollars</strong> in artificial intelligence, data centers, cloud infrastructure, logistics, advanced manufacturing, and digital government (Saudi Vision 2030, UAE digital economy strategy, Qatar National Vision). On the other hand, the broader MENA region is sitting on a massive pool of unemployed and underutilized human capital—millions of graduates and semi-skilled youth.</p>
+<p>According to PwC and McKinsey, the AI and digital economy alone could contribute <strong>$300–500 billion to GCC GDP by 2030</strong>. Yet the region still imports much of the human capital needed to run these systems, while neighboring countries export unemployment.</p>
+<p>This is not a market failure alone. It is an institutional and policy failure.</p>
+<p>One of the deepest structural problems is that almost no youth employment program is designed for scale from the beginning. Most are conceived as high-quality, high-touch, expensive pilots. Only later does someone ask whether the model can be scaled nationally. By then, the cost structure is wrong, the delivery mechanism is too complex, and the institutional ownership is unclear. The World Bank’s Independent Evaluation Group has repeatedly highlighted this “<strong>pilot trap</strong>” in social and labor market programs.</p>
+<p>Scale is not something that happens by inspiration or replication. It must be engineered: through <strong>simple models, low unit costs, standardized processes, digital delivery, and strong institutional anchoring</strong>.</p>
+<p>The irony is that the region already has one of the key ingredients: extraordinary digital penetration among youth. According to GSMA and the World Bank, smartphone penetration among young people in MENA exceeds <strong>80% in many countries</strong>. Social media usage is among the highest in the world. Yet this is barely used for <strong>mass, demand-driven, job-linked upskilling</strong>.</p>
+<p>Instead of thousands of trainees in classrooms, the region should be thinking in terms of <strong>hundreds of thousands moving through standardized, Arabic-first, modular training pipelines</strong>, directly linked to real labor demand—especially in data services, AI support roles, digital operations, and remote service delivery.</p>
+<p>In effect, youth employment must be treated as a <strong>digital supply chain</strong>.</p>
+<p>Another structural mistake is the confusion between innovation and scale. The OECD and World Bank both emphasize that <strong>innovation and system-wide delivery require different institutions, incentives, and skills</strong>. MENA is not short of pilots. It is short of mechanisms to take what works and industrialize it.</p>
+<p>That requires political decisions. It requires ministries of finance, planning, and labor to stop seeing youth employment as a donor-funded social program and start seeing it as <strong>core economic infrastructure</strong>.</p>
+<p>It also requires ruthless simplification. Most current youth programs try to do everything at once: skills, life skills, finance, mentoring, psychosocial support, incubation, placement. All of these are valuable. Together, they become unscalable. At population scale, success comes not from adding components but from subtracting complexity.</p>
+<p>The right question is not “what is the perfect program?” but “what is the simplest intervention that can move millions?”</p>
+<p>Consider a concrete example. If GCC economies are projected to need <strong>millions of mid-level digital and service workers</strong> over the next decade (PwC, McKinsey), then the region should be building <strong>mass pipelines</strong> that take young people with different education levels and move them, in three to six months, into these roles through tiered skills pathways, language training, and direct job routing. This is not social policy. It is workforce supply chain economics.</p>
+<p>But even the best technical design will fail without regional ownership. Employment at MENA scale cannot be built country by country. It requires coordination between labor-sending and labor-receiving countries, policy alignment, financing mechanisms, and partial frameworks for cross-border (including virtual) labor mobility.</p>
+<p>This is where large institutions must play a different role. The <strong>World Bank, ILO, UNDP, Islamic Development Bank, and regional funds</strong> are uniquely positioned to legitimize, finance, and de-risk scale. But this requires a shift from <strong>project logic to platform logic</strong>.</p>
+<p>The region does not lack money.</p>
+<p>It does not lack young people.</p>
+<p>It lacks <strong>systems</strong>.</p>
+<p>The strategic choice is becoming unavoidable. The Middle East and North Africa can continue to manage youth unemployment through thousands of small, well-intentioned, disconnected programs. Or it can decide to build<strong>two or three massive employment engines</strong> that operate at population scale.</p>
+<p>One approach manages the problem.</p>
+<p>The other changes the trajectory of the region.</p>
+<p>If MENA gets youth employment right, growth, stability, and social cohesion become achievable. If it does not, no amount of infrastructure, AI, or capital investment will compensate for a generation that has lost its stake in the future.</p>
 				</div>
-				</div>
-				<div class="elementor-element elementor-element-1b3e6866 elementor-widget elementor-widget-post-navigation" data-id="1b3e6866" data-element_type="widget" data-e-type="widget" data-widget_type="post-navigation.default">
-				<div class="elementor-widget-container">
-							<div class="elementor-post-navigation" role="navigation" aria-label="Post Navigation">
-			<div class="elementor-post-navigation__prev elementor-post-navigation__link">
-				<a href="https://jabiconsulting.com/mena-monthly-pulse-volume-11/" rel="prev"><span class="elementor-post-navigation__link__prev"><span class="post-navigation__prev--label">Previous</span></span></a>			</div>
-						<div class="elementor-post-navigation__next elementor-post-navigation__link">
-				<a href="https://jabiconsulting.com/mena-monthly-pulse-volume-1-2026/" rel="next"><span class="elementor-post-navigation__link__next"><span class="post-navigation__next--label">Next</span></span></a>			</div>
-		</div>
-						</div>
-				</div>
-		<div class="elementor-element elementor-element-5f36294f e-con-full e-flex e-con e-child" data-id="5f36294f" data-element_type="container" data-e-type="container">
-				<div class="elementor-element elementor-element-71152fa8 elementor-widget elementor-widget-heading" data-id="71152fa8" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
-				<div class="elementor-widget-container">
-					<span class="elementor-heading-title elementor-size-default">Share the Post:</span>				</div>
-				</div>
-				<div class="elementor-element elementor-element-14a35fd8 elementor-share-buttons--view-icon elementor-share-buttons--skin-minimal elementor-share-buttons--color-custom elementor-share-buttons--shape-square elementor-grid-0 elementor-widget elementor-widget-share-buttons" data-id="14a35fd8" data-element_type="widget" data-e-type="widget" data-widget_type="share-buttons.default">
-				<div class="elementor-widget-container">
-							<div class="elementor-grid" role="list">
-								<div class="elementor-grid-item" role="listitem">
-						<div class="elementor-share-btn elementor-share-btn_facebook" role="button" tabindex="0" aria-label="Share on facebook">
-															<span class="elementor-share-btn__icon">
-								<i class="fab fa-facebook" aria-hidden="true"></i>							</span>
-																				</div>
-					</div>
-									<div class="elementor-grid-item" role="listitem">
-						<div class="elementor-share-btn elementor-share-btn_twitter" role="button" tabindex="0" aria-label="Share on twitter">
-															<span class="elementor-share-btn__icon">
-								<i class="fab fa-twitter" aria-hidden="true"></i>							</span>
-																				</div>
-					</div>
-									<div class="elementor-grid-item" role="listitem">
-						<div class="elementor-share-btn elementor-share-btn_linkedin" role="button" tabindex="0" aria-label="Share on linkedin">
-															<span class="elementor-share-btn__icon">
-								<i class="fab fa-linkedin" aria-hidden="true"></i>							</span>
-																				</div>
-					</div>
-						</div>
-						</div>
-				</div>
-				</div>
-					</div>
-				</div>
-		<div class="elementor-element elementor-element-9af363d e-flex e-con-boxed e-con e-parent" data-id="9af363d" data-element_type="container" data-e-type="container">
-					<div class="e-con-inner">
-				<div class="elementor-element elementor-element-3d8e0f7c elementor-widget elementor-widget-heading" data-id="3d8e0f7c" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
-				<div class="elementor-widget-container">
-					<h2 class="elementor-heading-title elementor-size-default">Related Posts</h2>				</div>
-				</div>
-				<div class="elementor-element elementor-element-56c82c5b elementor-posts__hover-none elementor-grid-2 elementor-grid-tablet-2 elementor-grid-mobile-1 elementor-posts--thumbnail-top elementor-widget elementor-widget-posts" data-id="56c82c5b" data-element_type="widget" data-e-type="widget" data-settings="{&quot;cards_row_gap&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:80,&quot;sizes&quot;:[]},&quot;cards_row_gap_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:71,&quot;sizes&quot;:[]},&quot;cards_row_gap_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:30,&quot;sizes&quot;:[]},&quot;cards_columns&quot;:&quot;2&quot;,&quot;cards_columns_tablet&quot;:&quot;2&quot;,&quot;cards_columns_mobile&quot;:&quot;1&quot;}" data-widget_type="posts.cards">
-				<div class="elementor-widget-container">
-							<div class="elementor-posts-container elementor-posts elementor-posts--skin-cards elementor-grid" role="list">
-				<article class="elementor-post elementor-grid-item post-7238 post type-post status-publish format-standard has-post-thumbnail hentry category-press-releases" role="listitem">
-			<div class="elementor-post__card">
-				<a class="elementor-post__thumbnail__link" href="https://jabiconsulting.com/mena-monthly-pulse-volume-4-2026/" tabindex="-1" ><div class="elementor-post__thumbnail"><img width="1254" height="836" src="https://jabiconsulting.com/wp-content/uploads/2026/04/qtq80-sbAKZa.jpeg" class="attachment-full size-full wp-image-7235" alt="" decoding="async" srcset="https://jabiconsulting.com/wp-content/uploads/2026/04/qtq80-sbAKZa.jpeg 1254w, https://jabiconsulting.com/wp-content/uploads/2026/04/qtq80-sbAKZa-300x200.jpeg 300w, https://jabiconsulting.com/wp-content/uploads/2026/04/qtq80-sbAKZa-1024x683.jpeg 1024w, https://jabiconsulting.com/wp-content/uploads/2026/04/qtq80-sbAKZa-768x512.jpeg 768w" sizes="(max-width: 1254px) 100vw, 1254px" /></div></a>
-				<div class="elementor-post__text">
-				<h4 class="elementor-post__title">
-			<a href="https://jabiconsulting.com/mena-monthly-pulse-volume-4-2026/" >
-				MENA Monthly Pulse Volume 4 (2026)			</a>
-		</h4>
-				<div class="elementor-post__excerpt">
-			<p>The Jabi Consulting team is excited to share the fourth edition of 2026 of the MENA Monthly Pulse* – a</p>
-		</div>
-		
-		<a class="elementor-post__read-more" href="https://jabiconsulting.com/mena-monthly-pulse-volume-4-2026/" aria-label="Read more about MENA Monthly Pulse Volume 4 (2026)" tabindex="-1" >
-			Read More		</a>
-
-				</div>
-					</div>
+				</div></div>
       <div class="article-source">Originally published at <a href="https://jabiconsulting.com/the-mena-youth-employment-time-bomb-and-how-to-defuse-it-at-scale/" target="_blank" rel="noopener">jabiconsulting.com →</a></div>
+      <div class="article-nav"><a class="prev" href="mena-monthly-pulse-volume-11.html"><span class="dir">← Older</span><span class="ttl">MENA Monthly Pulse Volume 11</span></a><a class="next" href="mena-monthly-pulse-volume-1-2026.html"><span class="dir">Newer →</span><span class="ttl">MENA Monthly Pulse Volume 1 (2026)</span></a></div>
     </div>
   </main>
   <footer>

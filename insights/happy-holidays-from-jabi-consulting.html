@@ -878,56 +878,72 @@
   <title>Happy Holidays from Jabi Consulting — Jabi Consulting</title>
   <link rel="canonical" href="../insights/happy-holidays-from-jabi-consulting.html" />
   <meta property="og:title" content="Happy Holidays from Jabi Consulting" />
-  <meta property="og:description" content="Happy Holidays from Jabi Consulting — Jabi Consulting insights." />
   <meta property="og:image" content="../assets/articles/happy-holidays-from-jabi-consulting.png" />
   <style>
     .article-page { padding: 60px 0 100px; }
+    .article-page .container { max-width: 880px; }
     .article-back {
       display: inline-flex; align-items: center; gap: 6px;
       font-size: 13px; color: var(--ink-dim);
-      margin-bottom: 28px;
+      margin-bottom: 32px;
       text-transform: uppercase; letter-spacing: .12em;
       font-family: "JetBrains Mono", monospace;
       transition: color .2s;
     }
     .article-back:hover { color: var(--accent); }
     .article-page h1.article-h1 {
-      font-size: clamp(32px, 4.2vw, 54px);
+      font-size: clamp(30px, 4vw, 50px);
       line-height: 1.1; letter-spacing: -.02em;
-      font-weight: 800; max-width: 900px; margin: 0 0 18px;
+      font-weight: 800; margin: 0 0 18px;
     }
     .article-page .meta {
       font-family: "JetBrains Mono", monospace;
       font-size: 12px; letter-spacing: .12em;
       color: var(--ink-dim); margin-bottom: 32px;
       text-transform: uppercase;
+      display: flex; flex-wrap: wrap; gap: 12px; align-items: center;
     }
-    .article-page .meta .cat { color: var(--accent); margin-right: 14px; padding: 4px 12px; background: rgba(201,100,66,.10); border-radius: 999px; }
+    .article-page .meta .cat { color: var(--accent); padding: 5px 14px; background: rgba(201,100,66,.10); border-radius: 999px; }
     .article-page .cover {
-      width: 100%; max-height: 480px; object-fit: cover;
+      width: 100%; max-height: 460px; object-fit: cover;
       border-radius: 16px; margin: 0 0 42px;
       border: 1px solid var(--line-strong);
     }
-    .article-body {
-      max-width: 760px; margin: 0 auto;
-      font-size: 18px; line-height: 1.75;
-      color: var(--ink);
-    }
-    .article-body p { margin: 0 0 22px; }
-    .article-body h2, .article-body h3 { font-weight: 700; letter-spacing: -.01em; margin: 42px 0 16px; line-height: 1.25; }
-    .article-body h2 { font-size: 28px; } .article-body h3 { font-size: 22px; }
+    .article-body { font-size: 18px; line-height: 1.75; color: var(--ink); }
+    .article-body > * + * { margin-top: 22px; }
+    .article-body p { margin: 0; }
+    .article-body h2, .article-body h3, .article-body h4 { font-weight: 700; letter-spacing: -.01em; margin: 42px 0 14px; line-height: 1.25; }
+    .article-body h2 { font-size: 28px; }
+    .article-body h3 { font-size: 22px; }
+    .article-body h4 { font-size: 19px; }
     .article-body a { color: var(--accent); border-bottom: 1px solid rgba(201,100,66,.3); }
     .article-body a:hover { border-bottom-color: var(--accent); }
-    .article-body ul, .article-body ol { padding-left: 22px; margin: 0 0 22px; }
+    .article-body ul, .article-body ol { padding-left: 22px; margin: 0; }
     .article-body li { margin-bottom: 10px; }
-    .article-body img { max-width: 100%; height: auto; margin: 22px 0; border-radius: 10px; }
+    .article-body img { max-width: 100%; height: auto; margin: 22px 0; border-radius: 10px; display: block; }
     .article-body blockquote { border-left: 3px solid var(--accent); padding: 8px 0 8px 22px; margin: 30px 0; font-style: italic; color: var(--ink-dim); }
-    .article-source {
-      max-width: 760px; margin: 56px auto 0;
-      padding-top: 28px; border-top: 1px solid var(--line);
-      font-size: 13px; color: var(--muted);
+    .article-body strong { color: var(--ink); font-weight: 700; }
+
+    /* PDF embed */
+    .pdf-embed { margin: 36px 0; background: var(--bg-2); border: 1px solid var(--line-strong); border-radius: 14px; overflow: hidden; box-shadow: var(--shadow); }
+    .pdf-embed iframe { width: 100%; height: clamp(540px, 80vh, 880px); border: 0; display: block; background: #fff; }
+    .pdf-embed .pdf-download { display: block; padding: 14px 22px; background: var(--ink); color: #fff !important; border: 0; border-bottom: 0; text-align: center; font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; transition: background .2s; }
+    .pdf-embed .pdf-download:hover { background: var(--accent); border-bottom: 0; }
+
+    .article-source { margin: 56px 0 0; padding-top: 28px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+    .article-source a { color: var(--accent); border-bottom: 1px solid rgba(201,100,66,.3); }
+    .article-nav { margin-top: 60px; padding-top: 28px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .article-nav a { font-size: 13px; color: var(--ink-dim); transition: color .2s; max-width: 45%; }
+    .article-nav a:hover { color: var(--accent); }
+    .article-nav .dir { display: block; font-size: 10px; color: var(--accent); margin-bottom: 4px; font-family: "JetBrains Mono", monospace; letter-spacing: .12em; text-transform: uppercase; }
+    .article-nav .ttl { display: block; font-size: 14px; color: var(--ink); font-weight: 600; line-height: 1.3; }
+    .article-nav .next { text-align: right; }
+
+    @media (max-width: 720px) {
+      .article-page { padding: 40px 0 80px; }
+      .pdf-embed iframe { height: clamp(380px, 70vh, 600px); }
+      .article-body { font-size: 16.5px; }
     }
-    .article-source a { color: var(--accent); }
   </style>
 </head>
 <body>
@@ -959,8 +975,9 @@
       <div class="meta"><span class="cat">Company Updates</span><span class="date">December 23, 2025</span></div>
       <h1 class="article-h1">Happy Holidays from Jabi Consulting</h1>
       <img src="../assets/articles/happy-holidays-from-jabi-consulting.png" alt="" class="cover" />
-      <div class="article-body"><p><em>This article's full content is short. <a href='https://jabiconsulting.com/happy-holidays-from-jabi-consulting/' target='_blank' rel='noopener'>Read the original at jabiconsulting.com →</a></em></p></div>
+      <div class="article-body"><p><em>This article is short. <a href='https://jabiconsulting.com/happy-holidays-from-jabi-consulting/' target='_blank' rel='noopener'>Read the original at jabiconsulting.com →</a></em></p></div>
       <div class="article-source">Originally published at <a href="https://jabiconsulting.com/happy-holidays-from-jabi-consulting/" target="_blank" rel="noopener">jabiconsulting.com →</a></div>
+      <div class="article-nav"><a class="prev" href="mena-monthly-pulse-volume-10.html"><span class="dir">← Older</span><span class="ttl">MENA Monthly Pulse Volume 10</span></a><a class="next" href="the-gulfs-ai-moment-and-the-untapped-power-of-arab-youth.html"><span class="dir">Newer →</span><span class="ttl">The Gulf’s AI Moment and the Untapped Power of Arab Youth</span></a></div>
     </div>
   </main>
   <footer>
