@@ -390,41 +390,56 @@
                                 .cap-icon { width: 40px; height: 40px; margin-bottom: 16px; } }
     .cap {
       position: relative;
-      padding: 32px 28px;
       background: var(--card);
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      transition: transform .3s, background .3s, border-color .3s;
+      transition: transform .3s, background .3s, border-color .3s, box-shadow .3s;
       overflow: hidden;
+      display: flex; flex-direction: column;
     }
-    .cap::before {
-      content: ""; position: absolute; inset: 0;
-      background: radial-gradient(400px 200px at 0% 0%, rgba(201,100,66,.08), transparent 60%);
-      opacity: 0; transition: opacity .35s;
+    .cap:hover { transform: translateY(-4px); background: var(--card-hi); border-color: var(--line-strong); box-shadow: 0 14px 32px -14px rgba(26,26,26,.18); }
+    /* Photo at top of each card */
+    .cap-photo {
+      aspect-ratio: 16/10;
+      overflow: hidden;
+      background: var(--bg-3);
+      border-bottom: 1px solid var(--line);
     }
-    .cap:hover { transform: translateY(-4px); background: var(--card-hi); border-color: var(--line-strong); }
-    .cap:hover::before { opacity: 1; }
+    .cap-photo img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform .8s ease;
+    }
+    .cap:hover .cap-photo img { transform: scale(1.05); }
+    .cap-body { padding: 26px 26px 30px; }
     .cap-num {
       font-family: "JetBrains Mono", monospace;
       font-size: 11px; letter-spacing: .15em;
-      color: var(--accent); margin-bottom: 22px;
+      color: var(--accent); margin-bottom: 14px;
     }
     .cap h3 {
-      font-size: 20px; margin: 0 0 12px; font-weight: 700;
+      font-size: 19px; margin: 0 0 12px; font-weight: 700;
       letter-spacing: -.01em;
     }
     .cap p {
-      color: var(--ink-dim); font-size: 15px; margin: 0;
+      color: var(--ink-dim); font-size: 14.5px; margin: 0; line-height: 1.55;
     }
-    .cap-icon {
-      width: 48px; height: 48px;
-      display: grid; place-items: center;
-      border-radius: 12px;
-      background: rgba(201,100,66,.10);
+
+    /* ---------- Regions intro split ---------- */
+    .regions-intro {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 60px;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+    @media (max-width: 880px) { .regions-intro { grid-template-columns: 1fr; gap: 32px; } }
+    .regions-intro-photo {
+      border-radius: var(--radius);
+      overflow: hidden;
       border: 1px solid var(--line-strong);
-      margin-bottom: 22px;
+      aspect-ratio: 4/3;
     }
-    .cap-icon svg { width: 24px; height: 24px; color: var(--accent); }
+    .regions-intro-photo img { width: 100%; height: 100%; object-fit: cover; }
 
     /* ---------- Where we work — Mapbox full-width ---------- */
     .mapbox-stage {
@@ -774,6 +789,24 @@
       letter-spacing: -.005em; line-height: 1.3;
     }
 
+    /* ---------- Team intro split (copy + photo) ---------- */
+    .team-intro {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      margin-bottom: 0;
+    }
+    @media (max-width: 880px) { .team-intro { grid-template-columns: 1fr; gap: 32px; } }
+    .team-intro-photo {
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--line-strong);
+      box-shadow: var(--shadow);
+      aspect-ratio: 4/3;
+    }
+    .team-intro-photo img { width: 100%; height: 100%; object-fit: cover; }
+
     /* ---------- Team grid ---------- */
     .team-grid {
       display: grid;
@@ -993,7 +1026,7 @@
         </div>
       </div>
       <div class="hero-visual">
-        <img src="assets/hero-office.jpg" alt="MENA youth in a robotics &amp; AI workshop — Jabi Consulting partner programs" />
+        <img src="assets/imagery/hero-jabi.jpg" alt="MENA strategic advisory — driving sustainable growth across the region" />
         <div class="hero-tag">
           <div class="badge mono"><b>● </b>Live Engagements · MENA</div>
         </div>
@@ -1063,52 +1096,69 @@
       </div>
       <div class="caps">
         <article class="cap reveal">
-          <div class="cap-num">01 / BD &amp; Capture</div>
-          <div class="cap-icon"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></div>
-          <h3>Strategic Capture &amp; Business Development</h3>
-          <p>High win-rate capture strategy, proposal writing, and color-team support for federal &amp; international development opportunities across MENA.</p>
+          <div class="cap-photo"><img src="assets/imagery/cap-bd.jpg" alt="" loading="lazy" /></div>
+          <div class="cap-body">
+            <div class="cap-num">01 / BD &amp; Capture</div>
+            <h3>Strategic Capture &amp; Business Development</h3>
+            <p>High win-rate capture strategy, proposal writing, and color-team support for federal &amp; international development opportunities across MENA.</p>
+          </div>
         </article>
         <article class="cap reveal" data-delay="1">
-          <div class="cap-num">02 / MEL</div>
-          <div class="cap-icon"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M4 19V5M9 19V9M14 19v-6M19 19v-3"/></svg></div>
-          <h3>Monitoring, Evaluation &amp; Learning</h3>
-          <p>Robust MEL frameworks, mixed-methods evaluations, and learning systems that show what's working — and what isn't.</p>
+          <div class="cap-photo"><img src="assets/imagery/cap-mel.jpg" alt="" loading="lazy" /></div>
+          <div class="cap-body">
+            <div class="cap-num">02 / MEL</div>
+            <h3>Monitoring, Evaluation &amp; Learning</h3>
+            <p>Robust MEL frameworks, mixed-methods evaluations, and learning systems that show what's working — and what isn't.</p>
+          </div>
         </article>
         <article class="cap reveal" data-delay="2">
-          <div class="cap-num">03 / Strategy</div>
-          <div class="cap-icon"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg></div>
-          <h3>Strategy &amp; Advisory</h3>
-          <p>Senior advisory for U.S. firms, governments, and MENA institutions on market entry, partnerships, and long-horizon positioning.</p>
+          <div class="cap-photo"><img src="assets/imagery/cap-strategy.jpg" alt="" loading="lazy" /></div>
+          <div class="cap-body">
+            <div class="cap-num">03 / Strategy</div>
+            <h3>Strategy &amp; Advisory</h3>
+            <p>Senior advisory for U.S. firms, governments, and MENA institutions on market entry, partnerships, and long-horizon positioning.</p>
+          </div>
         </article>
         <article class="cap reveal">
-          <div class="cap-num">04 / Research</div>
-          <div class="cap-icon"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg></div>
-          <h3>Research &amp; Assessments</h3>
-          <p>Sector assessments, political-economy analysis, and field-validated research across the Gulf, Levant, Maghreb, and Horn.</p>
+          <div class="cap-photo"><img src="assets/imagery/ai-agritech.jpg" alt="" loading="lazy" /></div>
+          <div class="cap-body">
+            <div class="cap-num">04 / Research</div>
+            <h3>Research &amp; Assessments</h3>
+            <p>Sector assessments, political-economy analysis, and field-validated research across the Gulf, Levant, Maghreb, and Horn.</p>
+          </div>
         </article>
         <article class="cap reveal" data-delay="1">
-          <div class="cap-num">05 / AI &amp; Youth</div>
-          <div class="cap-icon"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4M7 8h4M7 12h2"/></svg></div>
-          <h3>AI, Youth Employment &amp; Innovation</h3>
-          <p>AI-ready operating models, Positive Youth Development programs, and workforce systems designed for MENA's demographic reality.</p>
+          <div class="cap-photo"><img src="assets/imagery/ai-uae-students.jpg" alt="" loading="lazy" /></div>
+          <div class="cap-body">
+            <div class="cap-num">05 / AI &amp; Youth</div>
+            <h3>AI, Youth Employment &amp; Innovation</h3>
+            <p>AI-ready operating models, Positive Youth Development programs, and workforce systems designed for MENA's demographic reality.</p>
+          </div>
         </article>
         <article class="cap reveal" data-delay="2">
-          <div class="cap-num">06 / Capacity</div>
-          <div class="cap-icon"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 3l9 4-9 4-9-4 9-4z"/><path d="M3 12l9 4 9-4M3 17l9 4 9-4"/></svg></div>
-          <h3>Training &amp; Capacity Building</h3>
-          <p>Tailored training, organizational development, and institutional strengthening — delivered in Arabic and English.</p>
+          <div class="cap-photo"><img src="assets/imagery/cap-capacity.jpg" alt="" loading="lazy" /></div>
+          <div class="cap-body">
+            <div class="cap-num">06 / Capacity</div>
+            <h3>Training &amp; Capacity Building</h3>
+            <p>Tailored training, organizational development, and institutional strengthening — delivered in Arabic and English.</p>
+          </div>
         </article>
       </div>
     </div>
   </section>
 
   <!-- ============== REGIONS — full-width Mapbox ============== -->
-  <section id="regions" style="background: rgba(26,26,26,.03); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
+  <section id="regions" style="border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
     <div class="container">
-      <div class="section-head reveal" style="text-align:left; max-width: 760px; margin: 0 0 12px;">
-        <div class="kicker">Where We Work</div>
-        <h2>16 Markets. One Region. Built On The Ground.</h2>
-        <p class="sub">Active engagements and partner networks across the Gulf, the Levant, the Maghreb, and the Horn — anchored by offices in Reston, Virginia and Nablus, Palestine.</p>
+      <div class="regions-intro reveal">
+        <div class="regions-intro-copy">
+          <div class="kicker">Where We Work</div>
+          <h2>16 Markets. One Region. Built On The Ground.</h2>
+          <p class="sub">Active engagements and partner networks across the Gulf, the Levant, the Maghreb, and the Horn — anchored by offices in Reston, Virginia and Nablus, Palestine.</p>
+        </div>
+        <div class="regions-intro-photo">
+          <img src="assets/imagery/cap-gcc.jpg" alt="GCC market entry — Gulf business advisory" loading="lazy" />
+        </div>
       </div>
       <div class="mapbox-stage reveal" data-delay="2">
         <div class="map-from-badge"><span class="dot"></span> HQ · Reston, VA</div>
@@ -1196,10 +1246,10 @@
           </figcaption>
         </figure>
         <figure class="ai-tile">
-          <img src="assets/imagery/ai-solar.jpg" alt="Solar-powered street infrastructure in Egypt" loading="lazy" />
+          <img src="assets/imagery/ai-smart-city.jpg" alt="Smart-city deployment across the Gulf" loading="lazy" />
           <figcaption class="ai-tile-cap">
             <div class="label">Digital Infrastructure</div>
-            <div class="title">Clean-energy systems &amp; smart-city deployment</div>
+            <div class="title">Smart-city systems &amp; clean-energy deployment</div>
           </figcaption>
         </figure>
       </div>
@@ -1209,10 +1259,15 @@
   <!-- ============== TEAM ============== -->
   <section id="team">
     <div class="container">
-      <div class="section-head reveal">
-        <div class="kicker">Our Team &amp; Associates</div>
-        <h2>Multilingual MENA Operators. Deep Donor &amp; Private-Sector Networks.</h2>
-        <p class="sub">A core team in Washington and Nablus, supported by senior advisors spanning USAID, the World Bank, ILO, MIT, and four decades of MENA market practice.</p>
+      <div class="team-intro reveal">
+        <div class="team-intro-copy">
+          <div class="kicker">Our Team &amp; Associates</div>
+          <h2>Multilingual MENA Operators. Deep Donor &amp; Private-Sector Networks.</h2>
+          <p class="sub">A core team in Washington and Nablus, supported by senior advisors spanning USAID, the World Bank, ILO, MIT, and four decades of MENA market practice.</p>
+        </div>
+        <div class="team-intro-photo">
+          <img src="assets/imagery/team-office.jpg" alt="Jabi Consulting team — Washington &amp; Nablus offices" loading="lazy" />
+        </div>
       </div>
 
       <div class="team-categories reveal">
